@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="utf-8" />
-        <title>Archives | Bin&#39;s blog</title>
+        <title>从零开始的博客搭建生活-002 | Bin&#39;s blog</title>
         <meta name="author" content="Binbin" />
         <meta name="description" content="小彬彬的博客" />
         <meta name="keywords" content="hexo,node,blog" />
@@ -28,6 +28,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -141,54 +145,58 @@
 </transition>
 
             <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-                
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
+                <div class="article">
+    <div>
+        <h1>从零开始的博客搭建生活-002</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/3
+        </span>
         
-        <div class="timeline" data-title="helloworld">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/1</div>
-                <a href="/2023/10/01/hello-world/">
-                    <h3>Hello World</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="从零开始的博客搭建生活-001">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/1</div>
-                <a href="/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/">
-                    <h3>从零开始的博客搭建生活-001</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="从零开始的博客搭建生活-002">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/3</div>
-                <a href="/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/">
-                    <h3>从零开始的博客搭建生活-002</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
         
     </div>
+    
+    <div class="content" v-pre>
+        <p>前文指引：<a href="/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/" title="从零开始的博客搭建生活-001">从零开始的博客搭建生活-001</a></p>
+<img src="/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/photo3.jpg">
+
+<span id="more"></span>
+
+<p>在第一篇文章中省略的正式上线流程，还是有点路程的（）  </p>
+<ol>
+<li>首先你要有一个github账户，easy。</li>
+<li>github pages配置，easy。</li>
+<li>git配置SSH公钥（第一次用git），小麻烦。</li>
+<li>webstorm链接远程，easy。</li>
+</ol>
+<p>用一下hexo g ，就这样我们网站就能正式上线了啊哈哈，但是通过github来访问难以记忆，第二篇要写的东西，就是域名。</p>
+<p>有了域名，我们访问网站就会更加方便，只需记住名字就行，当然这是付费项目。</p>
+<p>我在阿里云花钱买了个.top域名，.com一年23块我买不起，这个一年9块还是比较便宜的<br><strong>注意：购买域名需要实名认证，一般当天就通过了</strong>  </p>
+<img src="/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/photo1.png">
+
+<p>接下来便是<strong>解析域名</strong> (我耗费时间最长的地方，出现了各种莫名其妙的问题)：在域名解析里添加记录</p>
+<img src="/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/photo2.jpg">
+
+<p><del>参考</del> 照搬了多个教程最后决定添加的2条记录,除了第一条的记录值要改为名字.github.io.（<strong>末尾一定要有这个点</strong>）外，其他都按照图上写。</p>
+<p>最后在github pages上添加自己的域名即可。(在这里，依旧没有解决一个叫”DNS valid for primary”的问题，我翻了很多网站都没找到合适的解决方案，虽然不影响使用，但这个问题在未来会追加解决的！)</p>
+<p>稍作一会，你便可以直接通过域名看到自己的网站咯wow</p>
+<img src="/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/photo2.png">  
+
+<p>至于为什么没有买云服务器搭配呢，原因很简单，我没钱买ECS云服务器，一个计算型c5算上公网带宽一个月起码200元花销，真的很贵。<br>~~（什么，你说新生计划？抱歉，已经被我拿去做mc服务器用掉了）~~~</p>
+<p>域名就写这么多，<br>在下一篇中，将对个人博客进行进一步的美化！  </p>
+<h3 id="从零开始的博客搭建生活-002-Finished！"><a href="#从零开始的博客搭建生活-002-Finished！" class="headerlink" title="从零开始的博客搭建生活-002 Finished！"></a>从零开始的博客搭建生活-002 Finished！</h3><img src="/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/photo4.jpeg">
+    </div>
+    
+    
+    
+    
+    
+    
+    
 </div>
 
                 <footer id="footer">
@@ -219,6 +227,12 @@
             
         </div>
         <script src="/js/main.js"></script>
+        
+        
+
+
+
+
         
     </body>
 </html>
