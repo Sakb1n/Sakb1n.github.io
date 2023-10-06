@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="utf-8" />
-        <title>Archives | Bin&#39;s blog</title>
+        <title>从零开始的博客搭建生活-003 | Bin&#39;s blog</title>
         <meta name="author" content="Binbin" />
         <meta name="description" content="小彬彬的博客" />
         <meta name="keywords" content="hexo,node,blog" />
@@ -28,6 +28,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -141,68 +145,64 @@
 </transition>
 
             <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-                
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
+                <div class="article">
+    <div>
+        <h1>从零开始的博客搭建生活-003</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/5
+        </span>
         
-        <div class="timeline" data-title="helloworld">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/1</div>
-                <a href="/2023/10/01/hello-world/">
-                    <h3>Hello World</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="从零开始的博客搭建生活-001">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/1</div>
-                <a href="/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/">
-                    <h3>从零开始的博客搭建生活-001</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="从零开始的博客搭建生活-002">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/3</div>
-                <a href="/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/">
-                    <h3>从零开始的博客搭建生活-002</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="从零开始的博客搭建生活-003">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/5</div>
-                <a href="/2023/10/05/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-003/">
-                    <h3>从零开始的博客搭建生活-003</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
         
     </div>
+    
+    <div class="content" v-pre>
+        <p>前文指引：  </p>
+<a href="/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/" title="从零开始的博客搭建生活-001">从零开始的博客搭建生活-001</a>
+<br>
+<br>
+<a href="/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/" title="从零开始的博客搭建生活-002">从零开始的博客搭建生活-002</a>  
+
+<p>今天写的是对博客各种功能的学习。预计这个系列在下一集就会完结www。<br><br> </p>
+<span id="more"></span>
+<h2 id="文章编写"><a href="#文章编写" class="headerlink" title="文章编写"></a>文章编写</h2><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章:"></a>新建文章:</h3><p><code>hexo new 文件名</code>  </p>
+<p>执行该命令后会在根目录的source_posts生成文章。</p>
+<h3 id="新建草稿"><a href="#新建草稿" class="headerlink" title="新建草稿:"></a>新建草稿:</h3><p><code>hexo new draft 文件名</code>  </p>
+<p>执行后同上，会在_drafts下生成草稿，<strong>草稿不会被更新在博客中</strong>。  </p>
+<p>通过上面这两个命令，相信已经知道Hexo文章的生成了，而文章的撰写需要学会Markdown语法，这部分内容会放在Extra章节中。  </p>
+<h3 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h3><p>在主目录的scaffolds文件夹中，存放有:  </p>
+<p><code>├── draft.md  //草稿模板</code><br><code>├── page.md   //页面模板</code><br><code>├── post.md   //文章模板</code>  </p>
+<p>打开post.md，可以看到:</p>
+<p><code>---</code><br><code>title: &#123;&#123; title &#125;&#125;</code><br><code>date: &#123;&#123; date &#125;&#125;</code><br><code>tags:</code><br><code>---</code>  </p>
+<p>向其中加入”categories：”,这样就添加了分类标签，此后生成文章后，文章头部将自带categories字段。<br><img src="/2023/10/05/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-003/photo2.png">  </p>
+<h2 id="网页基础设置"><a href="#网页基础设置" class="headerlink" title="网页基础设置"></a>网页基础设置</h2><h3 id="主目录的-config-yml"><a href="#主目录的-config-yml" class="headerlink" title="主目录的_config.yml"></a>主目录的_config.yml</h3><p>在主目录的_config.yml下，可以对网站基础进行设置。</p>
+<img src="/2023/10/05/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-003/photo1.png">
+
+<ul>
+<li>title:标题</li>
+<li>subtitle:子标题</li>
+<li>description:主页介绍</li>
+<li>keywords:关键字</li>
+<li>author:作者</li>
+<li>language:语言(建议改为zh-CN)</li>
+<li>timezone:时区</li>
+</ul>
+<p>在#site底下可以改url，这是博客上线后的地址，会在分享时用到。<br><code>url:http://example.com</code>  </p>
+<h3 id="主题的-config-yml"><a href="#主题的-config-yml" class="headerlink" title="主题的_config.yml"></a>主题的_config.yml</h3><p>在themes&#x2F;你的主题&#x2F;_config.yml下，也有一部分能设置的东西。  </p>
+<p><strong>注：以主题作者的文档为准！</strong>  </p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
 </div>
 
                 <footer id="footer">
@@ -233,6 +233,12 @@
             
         </div>
         <script src="/js/main.js"></script>
+        
+        
+
+
+
+
         
     </body>
 </html>
