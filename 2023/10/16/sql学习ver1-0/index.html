@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="utf-8" />
-        <title>从零开始的博客搭建生活-001 | Bin&#39;s blog</title>
+        <title>sql学习ver1.0 | Bin&#39;s blog</title>
         <meta name="author" content="Binbin" />
         <meta name="description" content="小彬彬的博客" />
         <meta name="keywords" content="hexo,node,blog" />
@@ -147,22 +147,22 @@
             <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
                 <div class="article">
     <div>
-        <h1>从零开始的博客搭建生活-001</h1>
+        <h1>sql学习ver1.0</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/10/1
+            2023/10/16
         </span>
         
         <span class="category">
-            <a href="/categories/%E5%BC%80%E5%8F%91/">
+            <a href="/categories/%E5%AD%A6%E4%B9%A0/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                开发
+                学习
             </a>
         </span>
         
@@ -175,7 +175,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E7%BD%91%E9%A1%B5-Hexo-%E5%8D%9A%E5%AE%A2/" style="color: #03a9f4">网页,Hexo,博客</a>
+                <a href="/tags/%E5%AD%A6%E4%B9%A0-mysql/" style="color: #ffa2c4">学习,mysql</a>
             </span>
             
         </span>
@@ -183,47 +183,118 @@
     </div>
     
     <div class="content" v-pre>
-        <p><del>这是一个预谋已久的计划</del><br>准备搭建一个属于自己的个人博客，至于原因，就是闲来无事在上面写点文章。<br>该系列会持续更新，这是第一篇，大概会更新4~5集，讲讲我这个新手从零开始的艰辛路程（）</p>
-<p><img src="https://cdnimg.gamekee.com/wiki2.0/images/w_3648/h_2753/829/43637/2022/11/14/817958.png" alt="小天使镇楼"></p>
+        <h2 id="数据库概念"><a href="#数据库概念" class="headerlink" title="数据库概念"></a>数据库概念</h2><p>操作者用SQL语言向数据库管理系统(DBMS)发出指令，系统在数据库(DB)里进行操作。</p>
 <span id="more"></span>
-<br>
-<br>
-<br>
-
-<h2 id="文章链接："><a href="#文章链接：" class="headerlink" title="文章链接："></a>文章链接：</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_51269961/article/details/122575897">https://blog.csdn.net/m0_51269961/article/details/122575897</a><br>快速搭建个人博客——保姆级教程</p>
-<h3 id="首先下载所需要的软件"><a href="#首先下载所需要的软件" class="headerlink" title="首先下载所需要的软件"></a>首先下载所需要的软件</h3><p>(<del>如果要收钱的话你懂得</del>)</p>
-<ul>
-<li>Webstorm (或Vscode, 但JetBrains全家桶可以用校园账户免费领)</li>
-<li>Hexo (网站博客框架，也可以用WordPress)</li>
-<li>Node.js (Hexo前置)</li>
-<li>git (工具)</li>
+<h2 id="数据库存储特点"><a href="#数据库存储特点" class="headerlink" title="数据库存储特点"></a>数据库存储特点</h2><ul>
+<li>数据放进表（按行存储），表放进数据库</li>
+<li>数据库有多个表，每个表只有一个名字</li>
+<li>表中的每一列（也称字段）类似于java中对象的属性，每一行类似于java中的对象</li>
 </ul>
-<p>需要注意的是，Node.js的安装可能需要自行配置环境变量，否则可能根本就运行不了指令，网上有一大堆教程。  </p>
-<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>安装：在桌面上git bash就行<br><code>npm install -g hexo-cli</code><br>插件：<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code>  </p>
-<p>初始化：建议自己创建新文件夹，在文件夹里面右键git bash<br><code>hexo init</code>  </p>
-<p>hexo的一些常用文件：</p>
-<ul>
-<li>public: 网站最终呈现形态</li>
-<li>node_modules: 插件</li>
-<li>_config.yml: 配置文件</li>
-<li>scaffolds: 模版文件夹</li>
-<li>themes: 存放主题文件</li>
-<li>source: 存放用户资源</li>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>my.ini 	文件位置：<code>C:\ProgramData\MySQL\MySQL Server 8.0</code></p>
+<h2 id="SQL启动与停止"><a href="#SQL启动与停止" class="headerlink" title="SQL启动与停止"></a>SQL启动与停止</h2><p>方式一：计算机 ——– 管理 ——-服务</p>
+<p>方式二：命令行(管理员)    <code>net start/stop mysql端口</code></p>
+<h2 id="SQL登陆与退出"><a href="#SQL登陆与退出" class="headerlink" title="SQL登陆与退出"></a>SQL登陆与退出</h2><p>方式一：MySQL Command Line Client登陆(仅限于root)</p>
+<p>方式二：命令行(管理员)	<code>mysql [-h主机名 -P端口号] -u用户名 -p密码</code> (仅限本地可以省略)</p>
+<p>退出：exit或ctrl+c</p>
+<h2 id="SQL常见命令"><a href="#SQL常见命令" class="headerlink" title="SQL常见命令"></a>SQL常见命令</h2><pre><code>show databases;              //查看数据库
+use 库名;						//打开指定库
+show tables					 //查看表
+desc 表名						//查看表结构
+查看版本：
+select version();
+mysql --version
+</code></pre>
+<h2 id="SQL语法规范"><a href="#SQL语法规范" class="headerlink" title="SQL语法规范"></a>SQL语法规范</h2><ul>
+<li>不区分大小写</li>
+<li>用分号结尾</li>
+<li>可以换行</li>
+<li>单行注释#或– + 空格</li>
+<li>多行注释&#x2F;*     *&#x2F;</li>
 </ul>
-<p>在webstorm中打开终端，输入：<br><code>hexo s </code><br><br><br>提示打开网站就成功了，进入网站将是hexo最开始的形态（用ctrl+c来关闭本地网站）</p>
-<img src="/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/photo1.png">
-但我们需要让网站更漂亮的话，该怎么办呢？答案就是使用官方提供的theme主题。
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h4 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h4><p>SELECT 列表 FROM 表名；</p>
+<p>注意：1.查询的可以是字段、变量、表达式或函数；</p>
+<p>​			2.返回的是<strong>虚拟表格</strong>。</p>
+<p>​			3.SELECT * 会返回所有字段。</p>
+<p>​			4.如果查询的列与SQL关键字冲突时，用反引号(&#96;&#96;)包裹。</p>
+<p>​			5.SELECT可以查询常量值（<del>意义何在…</del>）</p>
+<p>去重直接在字段前加上DISTINCT</p>
+<p>MySQL里的+号没有连接符的作用，只有运算符的作用</p>
+<ul>
+<li>若一方是字符型，会自动隐式转换为数值型，失败会当做0</li>
+<li>一方为NULL，最终值也为NULL</li>
+</ul>
+<p>若要拼接字段，使用CONCAT(str1, str2, …)，如果其中有NULL值最终也会变为NULL，使用ISNULL(字段，赋值) 来判断。</p>
+<h4 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h4><p>SELECT 列表 FROM 表名 WHERE 条件；</p>
+<ul>
+<li>按条件表达式筛选（&gt;  &lt;  &#x3D;  !&#x3D;或&lt;&gt;  &gt;&#x3D;  &lt;&#x3D;）</li>
+<li>按逻辑表达式筛选（&amp;  ||  !    and   or   not）</li>
+<li>模糊查询（like  between  and   in   isnull）</li>
+</ul>
+<p>ESCAPE   ‘  ‘		指定转义字符</p>
+<p>用IN模糊查询时不能用通配符。</p>
+<p>条件等于NULL值时 不能用&#x3D;，用专门的IS NULL。</p>
+<p>安全等于(&lt;&#x3D;&gt;) 可以判断NULL值。</p>
+<h4 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h4><p>SELECT 列表 FROM 表名 WHERE 条件 ORDER BY 排序列表  ASC|DESC；</p>
+<p>ORDER BY 一般是放在查询语句的最后。</p>
+<h4 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h4><pre><code>LENGTH()      求长
+CONCAT()      连接字段
+UPPER()		  大写化
+LOWER()		  小写化
+SUBSTR(str1, index1, index2)	 返回在str1 index1~index2 位置上的子字符串（索引从1开始）
+INSTR(str1, str2)		  返回在str2中第一次出现str1的索引,未查到返回0
+TRIM(str1, str2) 		  在str2的头和尾上去除str1，未填str1默认为空格
+L(R)PAD(str1, str2，length) 用str1在str2的左(右)边填充直到length长度
+REPLACE(str1, str2, str3)  将str1中的str2全部替换为str3
+</code></pre>
+<h4 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h4><pre><code>ROUND(x, y)			//四舍五入,对x保留y位小数
+CEIL(x)					 //向上取整
+FLOOR(x)				//向下取整
+RTUNCATE(x, y)	 //截断，对y + 1位后的小数进行截断
+MOD(x, y)				//x对y取余
+</code></pre>
+<h4 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h4><pre><code>NOW()			//返回当前系统日期+时间
+CURDATE()	//返回当前系统日期
+CURTIME()	//返回当前时间
+YEAR(time)、MONTH(time)...		//可以获取指定时间的年、月等...(MONTHNAME可获得英文月份)
+STR_TO_DATE()				//将日期格式的字符转换成指定格式的日期
+例：STR_TO_DATE(&#39;1998-3-2&#39;, &#39;%Y-%c-%D&#39;);
+DATE_FORMAT				//将日期转换为字符
+例：DATE_FORMAT(NOW(), &#39;%y年%m月%d日&#39;)
+</code></pre>
+<img src="/2023/10/16/sql%E5%AD%A6%E4%B9%A0ver1-0/photo1.png">
 
-<p>地址：<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a><br>我所选用的是ParticleX<br><br></p>
-<img src="/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/photo2.png">  
-<br>
 
-<p><strong>克隆：</strong><br><code>git clone https://github.com/theme-particlex/hexo-theme-particlex.git particlex --depth=1</code>  </p>
-<p>会多出以下文件:<br><img src="/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/photo3.png">  </p>
-<p>在hexo根目录下修改_config.yml(不是themes里面的那个！) 里的theme属性，改为theme: particlex(<strong>值中间要留有空格</strong>)<br>再hexo s,进入后主题更改，至此网站基础搭建成功！</p>
-<p>网站构建三件套：<br><code>hexo clean //执行此命令后继续下一条 </code><br><code>hexo g //生成博客目录</code><br><code>hexo s //本地预览</code>  </p>
-<p>而如何用github来对外展现自己的网站呢？在最开始的那个链接中详细指导了网站部署，很快就能学会！  </p>
-<h3 id="从零开始的博客搭建生活-001-Finished"><a href="#从零开始的博客搭建生活-001-Finished" class="headerlink" title="从零开始的博客搭建生活-001, Finished!"></a><strong>从零开始的博客搭建生活-001, Finished!</strong></h3><img src="/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/photo4.jpeg">
+
+
+
+<h4 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h4><pre><code>VERSION()		//版本号
+DATABASE()		//查看当前库
+USER()			//查看当前用户
+</code></pre>
+<h4 id="流程控制函数"><a href="#流程控制函数" class="headerlink" title="流程控制函数"></a>流程控制函数</h4><pre><code>IF的使用：
+IF(exp1, exp2, exp3)
+
+例： IF(10 &lt; 5, &#39;大&#39;， ‘小&#39;)
+
+
+CASE的使用：
+1.CASE 要判断的字段或表达式
+WHEN 常量1 THEN  要显示的值或语句;
+WHEN 常量2 THEN  要显示的值或语句;
+WHEN 常量3 THEN  要显示的值或语句;
+...
+ELSE 要显示的值或语句；
+END
+
+2.CASE
+WHEN 条件1 THEN 要显示的值或语句;
+WHEN 条件2 THEN 要显示的值或语句;
+WHEN 条件3 THEN 要显示的值或语句;
+...
+ELSE 要显示的值或语句；
+END
+</code></pre>
+
     </div>
     
     
