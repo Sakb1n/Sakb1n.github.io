@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="utf-8" />
-        <title>javaScript基础学习ver1.0 | Bin&#39;s blog</title>
+        <title>javaScript基础学习ver1.1 | Bin&#39;s blog</title>
         <meta name="author" content="Binbin" />
         <meta name="description" content="小彬彬的博客" />
         <meta name="keywords" content="hexo,node,blog" />
@@ -147,7 +147,7 @@
             <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
                 <div class="article">
     <div>
-        <h1>javaScript基础学习ver1.0</h1>
+        <h1>javaScript基础学习ver1.1</h1>
     </div>
     <div class="info">
         <span class="date">
@@ -183,32 +183,32 @@
     </div>
     
     <div class="content" v-pre>
-        <p>2023.10.19：更新js ver1.0</p>
+        <p>2023.10.21: 优化了排版，更新至ver1.1<br>2023.10.19：更新js ver1.0</p>
 <hr>
-<h1 id="JavaScript学习（mdn）"><a href="#JavaScript学习（mdn）" class="headerlink" title="JavaScript学习（mdn）"></a>JavaScript学习（mdn）</h1><p>在MDN上的javascript基础学习。</p>
+<h1 id="JavaScript学习（MDN）"><a href="#JavaScript学习（MDN）" class="headerlink" title="JavaScript学习（MDN）"></a>JavaScript学习（MDN）</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在MDN上的javascript基础学习。</p>
 <span id="more"></span>
-<h2 id="JavaScript第一步"><a href="#JavaScript第一步" class="headerlink" title="JavaScript第一步"></a>JavaScript第一步</h2><h3 id="什么是javaScript？"><a href="#什么是javaScript？" class="headerlink" title="什么是javaScript？"></a>什么是javaScript？</h3><h4 id="js简要"><a href="#js简要" class="headerlink" title="js简要"></a>js简要</h4><p>javascript是<strong>轻量级解释型</strong>语言，使用<strong>即时编译</strong>：会编译为二进制的格式。</p>
-<h4 id="js使用"><a href="#js使用" class="headerlink" title="js使用"></a>js使用</h4><p>使用内部js(在<code>&lt;/head&gt;</code>标签结束前插入<code>&lt;script&gt;</code>元素)</p>
-<p>或者直接外联（推荐):	<code>&lt;script src=&quot;script.js&quot; defer&gt;&lt;/script&gt;</code></p>
-<p><strong>不建议</strong>内联（太乱了）</p>
-<h4 id="案例：使用addEventListener"><a href="#案例：使用addEventListener" class="headerlink" title="案例：使用addEventListener"></a>案例：使用addEventListener</h4><p>使用querySelectorAll()函数选择按钮，使用addEventListener()为每个按钮分配一个处理器。</p>
+<h2 id="JavaScript第一步"><a href="#JavaScript第一步" class="headerlink" title="JavaScript第一步"></a>JavaScript第一步</h2><h3 id="什么是javaScript？"><a href="#什么是javaScript？" class="headerlink" title="什么是javaScript？"></a>什么是javaScript？</h3><h4 id="js简要"><a href="#js简要" class="headerlink" title="js简要"></a>js简要</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;javascript是<strong>轻量级解释型</strong>语言，使用<strong>即时编译</strong>：会编译为二进制的格式。</p>
+<h4 id="js使用"><a href="#js使用" class="headerlink" title="js使用"></a>js使用</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用内部js(在<code>&lt;/head&gt;</code>标签结束前插入<code>&lt;script&gt;</code>元素)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;或者直接外联（推荐):	<code>&lt;script src=&quot;script.js&quot; defer&gt;&lt;/script&gt;</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>不建议</strong>内联（太乱了）</p>
+<h4 id="案例：使用addEventListener"><a href="#案例：使用addEventListener" class="headerlink" title="案例：使用addEventListener"></a>案例：使用addEventListener</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用querySelectorAll()函数选择按钮，使用addEventListener()为每个按钮分配一个处理器。</p>
 <pre><code class="js">const buttons = document.querySelectorAll(&quot;button&quot;);
 for (let i = 0; i &lt; buttons.length; i++) &#123;
   buttons[i].addEventListener(&quot;click&quot;, createParagraph);
 &#125;
 </code></pre>
-<h4 id="脚本调用策略"><a href="#脚本调用策略" class="headerlink" title="脚本调用策略"></a>脚本调用策略</h4><p>HTML是按其出现在页面中的次序调用的，若js加载在欲操作的元素之前会发生错误。</p>
+<h4 id="脚本调用策略"><a href="#脚本调用策略" class="headerlink" title="脚本调用策略"></a>脚本调用策略</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTML是按其出现在页面中的次序调用的，若js加载在欲操作的元素之前会发生错误。</p>
 <p>1.内部：</p>
 <pre><code class="js">document.addEventListener(&quot;DOMContentLoaded&quot;, () =&gt; &#123;
   // …
 &#125;);
 </code></pre>
-<p>原理：这个事件监听器能监听浏览器的<code>DOMContentLoaded</code>事件，标志着HTML文档体完全加载和解析，而在该代码需在事件触发后才进行，从而避免了错误。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原理：这个事件监听器能监听浏览器的<code>DOMContentLoaded</code>事件，标志着HTML文档体完全加载和解析，而在该代码需在事件触发后才进行，从而避免了错误。</p>
 <p>2.外部：</p>
 <pre><code class="html">&lt;script src=&quot;script.js&quot; defer&gt;&lt;/script&gt;
 </code></pre>
-<p>在<code>&lt;script&gt;</code>最后加入defer解决问题。</p>
-<p>原理：defer告知浏览器在遇到<code>&lt;script&gt;</code>元素时继续下载HTML内容。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在<code>&lt;script&gt;</code>最后加入defer解决问题。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原理：defer告知浏览器在遇到<code>&lt;script&gt;</code>元素时继续下载HTML内容。</p>
 <h4 id="async-和-defer-的区别"><a href="#async-和-defer-的区别" class="headerlink" title="async 和 defer 的区别"></a>async 和 defer 的区别</h4><ul>
 <li>使用<code>async</code> 脚本时不会阻塞页面渲染，而是直接下载然后运行。但是，一旦下载完成，脚本就会执行，从而阻止页面渲染。脚本的运行次序无法控制。当页面的脚本之间彼此独立，且不依赖于本页面的其他任何脚本时，<code>async</code> 是最理想的选择。</li>
 <li>使用 <code>defer</code> 属性加载的脚本将按照它们在页面上出现的顺序加载。在页面内容全部加载完毕之前，脚本不会运行，如果脚本依赖于 DOM 的存在（例如，脚本修改了页面上的一个或多个元素），这一点非常有用。</li>
@@ -219,13 +219,13 @@ for (let i = 0; i &lt; buttons.length; i++) &#123;
 &lt;script async src=&quot;js/script2.js&quot;&gt;&lt;/script&gt;
 &lt;script async src=&quot;js/script3.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-<p>三者的调用顺序是不确定的。</p>
-<p><strong><code>async</code> 应该在有大量后台脚本需要加载，并且只想尽快加载到位的情况下使用</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三者的调用顺序是不确定的。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>async</code> 应该在有大量后台脚本需要加载，并且只想尽快加载到位的情况下使用</strong></p>
 <pre><code class="html">&lt;script defer src=&quot;js/vendor/jquery.js&quot;&gt;&lt;/script&gt;
 &lt;script defer src=&quot;js/script2.js&quot;&gt;&lt;/script&gt;
 &lt;script defer src=&quot;js/script3.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-<p>这将会按顺序以此加载。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>这将会按顺序以此加载。</p>
 <h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><ul>
 <li><pre><code class="js">// 注释
 </code></pre>
@@ -236,19 +236,19 @@ for (let i = 0; i &lt; buttons.length; i++) &#123;
 </code></pre>
 </li>
 </ul>
-<h3 id="javaScript初体验"><a href="#javaScript初体验" class="headerlink" title="javaScript初体验"></a>javaScript初体验</h3><p>感觉没什么要写的，很多都是在java中学过的了。</p>
-<p>这篇文章更多是在讲第一个程序，贴个链接：[JavaScript 初体验](<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/A_first_splash">JavaScript 初体验 - 学习 Web 开发 | MDN (mozilla.org)</a>)</p>
-<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><p>​	侦听事件的结构称为事件监听器(Event Listener）, 响应事件触发而运行的代码块称为事件处理器(Event Handler)。</p>
+<h3 id="javaScript初体验"><a href="#javaScript初体验" class="headerlink" title="javaScript初体验"></a>javaScript初体验</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;感觉没什么要写的，很多都是在java中学过的了。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这篇文章更多是在讲第一个程序，贴个链接：[JavaScript 初体验](<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/A_first_splash">JavaScript 初体验 - 学习 Web 开发 | MDN (mozilla.org)</a>)</p>
+<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;侦听事件的结构称为事件监听器(Event Listener）, 响应事件触发而运行的代码块称为事件处理器(Event Handler)。</p>
 <h4 id="for-of循环"><a href="#for-of循环" class="headerlink" title="for of循环"></a>for of循环</h4><pre><code class="js">const fruits = [&quot;apples&quot;, &quot;bananas&quot;, &quot;cherries&quot;];
 for (const fruit of fruits) &#123;
   console.log(fruit);
 &#125;
 </code></pre>
 <p>结果：</p>
-<pre><code class="js">&#39;apples&#39;、&#39;bananas&#39;、&#39;cherries&#39;
+<pre><code class="js">&#39;apples&#39;,&#39;bananas&#39;,&#39;cherries&#39;
 </code></pre>
-<p>​	for of在这里干了什么：获取fruits的第一个元素赋值给fruit，运行代码块，再重复这两个操作一直到fruits的末尾。</p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="验证变量存在"><a href="#验证变量存在" class="headerlink" title="验证变量存在"></a>验证变量存在</h4><p>​	可以使用变量的方式验证变量是否存在：</p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for of在这里干了什么：获取fruits的第一个元素赋值给fruit，运行代码块，再重复这两个操作一直到fruits的末尾。</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="验证变量存在"><a href="#验证变量存在" class="headerlink" title="验证变量存在"></a>验证变量存在</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以使用变量的方式验证变量是否存在：</p>
 <pre><code class="js">myName;
 myAge;		//若没数值会返回undefined，若不存在会产生报错信息
 </code></pre>
@@ -269,12 +269,12 @@ function logName() &#123;
 logName();
 var myName;			//变量提升
 </code></pre>
-<p>但let将不再允许该操作，并产生错误。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;但let将不再允许该操作，并产生错误。</p>
 <p>D2:</p>
 <pre><code class="js">var myName = &quot;Chris&quot;;
 var myName = &quot;Bob&quot;;
 </code></pre>
-<p>但let不能多次声明相同名称的变量。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;但let不能多次声明相同名称的变量。</p>
 <p><strong>注：Internet Explorer 直到第 11 版才支持 <code>let</code> !</strong></p>
 <h4 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h4><ul>
 <li>Number</li>
@@ -284,32 +284,32 @@ var myName = &quot;Bob&quot;;
 <li>Object</li>
 </ul>
 <p><strong>注：js的变量为动态类型</strong></p>
-<h3 id="数字与操作符"><a href="#数字与操作符" class="headerlink" title="数字与操作符"></a>数字与操作符</h3><p>typeof：返回数据类型</p>
-<p>**:	幂，	<code>5 ** 5</code>  &#x3D;3125</p>
-<p>&#x3D;&#x3D;&#x3D;：严格等于，要求数据类型相等</p>
-<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>js的字符串用单双引号都可以,但不能在字符串中包含相同的引号。</p>
+<h3 id="数字与操作符"><a href="#数字与操作符" class="headerlink" title="数字与操作符"></a>数字与操作符</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;typeof：返回数据类型</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**:	幂，	<code>5 ** 5</code>  &#x3D;3125</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x3D;&#x3D;&#x3D;：严格等于，要求数据类型相等</p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;js的字符串用单双引号都可以,但不能在字符串中包含相同的引号。</p>
 <h4 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h4><pre><code class="js">let bigmouth = &#39;I\&#39;ve got no right to take my place...&#39;;	//	使用\&#39;转义
 </code></pre>
-<h4 id="数字与字符串"><a href="#数字与字符串" class="headerlink" title="数字与字符串"></a>数字与字符串</h4><p>​	数值与字符串相互转换，用Number() 和 toString()方法。</p>
+<h4 id="数字与字符串"><a href="#数字与字符串" class="headerlink" title="数字与字符串"></a>数字与字符串</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数值与字符串相互转换，用Number() 和 toString()方法。</p>
 <pre><code class="js">let myNum = Number(myString);	//转换为数值
 let myString = myNum.toString();	//转换为字符串
 </code></pre>
-<h3 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h3><p>length方法返回长度：</p>
+<h3 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;length方法返回长度：</p>
 <pre><code class="js">browserType.length;
 </code></pre>
-<p>indexOf方法查找子字符串：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indexOf方法查找子字符串：</p>
 <pre><code class="js">browserType.indexOf(&quot;zilla&quot;);	//找不到返回-1
 </code></pre>
-<p>slice方法提取字符串：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slice方法提取字符串：</p>
 <pre><code class="js">browserType.slice(0, 3);		//范围不包含第二个参数
 browserType.slice(3);			//返回自第三个字符后的字符串
 </code></pre>
-<p>toLowerCase、toUpperCase大小写转换：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toLowerCase、toUpperCase大小写转换：</p>
 <pre><code class="js">let radData = &quot;mY&quot;;
 radData.toLowerCase();		//“my”
 radData.toUpperCase();		//&quot;MY&quot;
 </code></pre>
-<p>replace进行替换：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;replace进行替换：</p>
 <pre><code class="js">let browserType = mozilia;
 browserType.replace(&quot;moz&quot;, &quot;van&quot;);		//vanilia
 </code></pre>
@@ -322,16 +322,16 @@ shopping;
 </code></pre>
 <h4 id="获取数组长度"><a href="#获取数组长度" class="headerlink" title="获取数组长度"></a>获取数组长度</h4><pre><code class="js">shopping.length;
 </code></pre>
-<h4 id="字符串和数组的转换"><a href="#字符串和数组的转换" class="headerlink" title="字符串和数组的转换"></a>字符串和数组的转换</h4><p>split方法:</p>
+<h4 id="字符串和数组的转换"><a href="#字符串和数组的转换" class="headerlink" title="字符串和数组的转换"></a>字符串和数组的转换</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;split方法:</p>
 <pre><code class="js">let myData = &quot;Manchester,London,Liverpool,Birmingham,Leeds,Carlisle&quot;;
 let myArray = myData.split(&quot;,&quot;);
 myArray;		//Manchester London Liverpool Birmingham Leeds Carlisle&quot;
 </code></pre>
-<p>join方法:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;join方法:</p>
 <pre><code class="js">let myNewString = myArray.join(&quot;,&quot;);
 myNewString;	//Manchester,London,Liverpool,Birmingham,Leeds,Carlisle
 </code></pre>
-<p>toString方法：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toString方法：</p>
 <pre><code class="js">myArray.toString();
 </code></pre>
 <h4 id="添加或删除数组项"><a href="#添加或删除数组项" class="headerlink" title="添加或删除数组项"></a>添加或删除数组项</h4><pre><code class="js">let myArray = [
@@ -386,14 +386,14 @@ function setWeather() &#123;
   &#125;
 &#125;
 </code></pre>
-<h3 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h3><p>​		同java，不再写笔记了。</p>
+<h3 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h3><p>​		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同java，不再写笔记了。</p>
 <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h4><pre><code class="js">function myFunction() &#123;
   alert(&quot;hello world!&quot;);
 &#125;
 
 myFunction();
 </code></pre>
-<h4 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h4><p>也称函数表达式，没有函数名的函数，经常与事件处理程序一起使用。</p>
+<h4 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;也称函数表达式，没有函数名的函数，经常与事件处理程序一起使用。</p>
 <pre><code class="js">function() &#123;
   alert(&quot;hello world!&quot;);
 &#125;
@@ -415,8 +415,8 @@ test();
 <h3 id="事件介绍"><a href="#事件介绍" class="headerlink" title="事件介绍"></a>事件介绍</h3><blockquote>
 <p>事件是发生在你正在编程的系统中的事情——当事件发生时，系统产生（或“触发”）某种信号，并提供一种机制，当事件发生时，可以自动采取某种行动（即运行一些代码）。事件是在浏览器窗口内触发的，并倾向于附加到驻留在其中的特定项目。这可能是一个单一的元素，一组元素，当前标签中加载的 HTML 文档，或整个浏览器窗口。有许多不同类型的事件可以发生。</p>
 </blockquote>
-<p>为了对一个事件做出反应，你要给它附加一个<strong>事件处理器</strong></p>
-<h4 id="实例：处理点击事件"><a href="#实例：处理点击事件" class="headerlink" title="实例：处理点击事件"></a>实例：处理点击事件</h4><p>​	<code>&lt;button&gt;</code>元素将在用户点击按钮时触发一个事件（定义了一个addEventListener函数）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了对一个事件做出反应，你要给它附加一个<strong>事件处理器</strong></p>
+<h4 id="实例：处理点击事件"><a href="#实例：处理点击事件" class="headerlink" title="实例：处理点击事件"></a>实例：处理点击事件</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;button&gt;</code>元素将在用户点击按钮时触发一个事件（定义了一个addEventListener函数）</p>
 <pre><code class="html">&lt;button&gt;改变颜色&lt;/button&gt;	
 </code></pre>
 <pre><code class="js">const btn = document.querySelector(&quot;button&quot;);//引用
@@ -430,7 +430,7 @@ btn.addEventListener(&quot;click&quot;, () =&gt; &#123;
   document.body.style.backgroundColor = rndCol;
 &#125;);
 </code></pre>
-<p>不仅仅可以监听点击事件，addEventListener还可以:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不仅仅可以监听点击事件，addEventListener还可以:</p>
 <ul>
 <li>focus:聚焦（按Tab）</li>
 <li>blur:失焦(再次按下Tab)</li>
@@ -438,10 +438,10 @@ btn.addEventListener(&quot;click&quot;, () =&gt; &#123;
 <li>mouseover：鼠标指针在按钮上悬停</li>
 <li>mouseout：鼠标指针移出按钮</li>
 </ul>
-<h4 id="移除监听器"><a href="#移除监听器" class="headerlink" title="移除监听器"></a>移除监听器</h4><p>​	用removeEventListener()方法</p>
+<h4 id="移除监听器"><a href="#移除监听器" class="headerlink" title="移除监听器"></a>移除监听器</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用removeEventListener()方法</p>
 <pre><code class="js">btn.removeEventListener(&quot;click&quot;, changeBackground);
 </code></pre>
-<p>​	也可以传递AbortSignal到addEventListener()，在拥有AbortSignal的控制器上调用abort()来删除。</p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;也可以传递AbortSignal到addEventListener()，在拥有AbortSignal的控制器上调用abort()来删除。</p>
 <pre><code class="js">const controller = new AbortController();
 
 btn.addEventListener(&quot;click&quot;,() =&gt; &#123;
@@ -457,7 +457,7 @@ btn.addEventListener(&quot;click&quot;,() =&gt; &#123;
 <h4 id="在单个事件上添加多个监听器"><a href="#在单个事件上添加多个监听器" class="headerlink" title="在单个事件上添加多个监听器"></a>在单个事件上添加多个监听器</h4><pre><code class="js">myElement.addEventListener(&quot;click&quot;, functionA);
 myElement.addEventListener(&quot;click&quot;, functionB);
 </code></pre>
-<h4 id="其他事件监听器机制"><a href="#其他事件监听器机制" class="headerlink" title="其他事件监听器机制"></a>其他事件监听器机制</h4><p>​	<strong>事件处理器属性</strong>：可以触发事件的对象通常有<code>on+事件名称</code>的属性，例如 <code>onclick</code>。</p>
+<h4 id="其他事件监听器机制"><a href="#其他事件监听器机制" class="headerlink" title="其他事件监听器机制"></a>其他事件监听器机制</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>事件处理器属性</strong>：可以触发事件的对象通常有<code>on+事件名称</code>的属性，例如 <code>onclick</code>。</p>
 <p>​	所以也可以这样写：</p>
 <pre><code class="js">btn.onclick = () =&gt; &#123;
   const rndCol = `rgb($&#123;random(255)&#125;, $&#123;random(255)&#125;, $&#123;random(255)&#125;)`;
@@ -465,7 +465,7 @@ myElement.addEventListener(&quot;click&quot;, functionB);
 &#125;;
 </code></pre>
 <p>​	或者<code>btn.onclick = functionA</code>;</p>
-<p>​	<strong>事件处理器属性不能添加多个处理程序。</strong></p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>事件处理器属性不能添加多个处理程序。</strong></p>
 <p>​	<strong>内联事件处理器</strong></p>
 <pre><code class="html">&lt;button onclick=&quot;bgChange()&quot;&gt;按下我&lt;/button&gt;
 </code></pre>
@@ -478,7 +478,7 @@ myElement.addEventListener(&quot;click&quot;, functionB);
 <p>许多常见的服务器配置将禁止内联 JavaScript。</p>
 <p><strong>你永远不应该使用 HTML 事件处理器属性</strong>——那些已经过时了，使用它们是不好的做法。</p>
 </blockquote>
-<h4 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h4><p>​	在事件处理函数内部可能会看到一个固定指定名称的参数，例如 <code>event</code>、<code>evt</code> 或 <code>e</code>，这就是<strong>事件对象</strong>。</p>
+<h4 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在事件处理函数内部可能会看到一个固定指定名称的参数，例如 <code>event</code>、<code>evt</code> 或 <code>e</code>，这就是<strong>事件对象</strong>。</p>
 <pre><code class="js">//e.target指的是按钮本身。事件对象 e 的 target 属性始终是事件刚刚发生的元素的引用
 const btn = document.querySelector(&quot;button&quot;);
 function bgChange(e) &#123;
@@ -490,7 +490,7 @@ function bgChange(e) &#123;
 btn.addEventListener(&quot;click&quot;, bgChange);
 </code></pre>
 <p>​</p>
-<h4 id="事件对象的额外属性"><a href="#事件对象的额外属性" class="headerlink" title="事件对象的额外属性"></a>事件对象的额外属性</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/keydown_event"><code>keydown</code></a> 事件在用户按下一个键时发生。它的事件对象是 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/KeyboardEvent"><code>KeyboardEvent</code></a>，它是一个专门的 <code>Event</code> 对象，有一个 <code>key</code> 属性，告诉你哪个键被按下。</p>
+<h4 id="事件对象的额外属性"><a href="#事件对象的额外属性" class="headerlink" title="事件对象的额外属性"></a>事件对象的额外属性</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/keydown_event"><code>keydown</code></a> 事件在用户按下一个键时发生。它的事件对象是 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/KeyboardEvent"><code>KeyboardEvent</code></a>，它是一个专门的 <code>Event</code> 对象，有一个 <code>key</code> 属性，告诉你哪个键被按下。</p>
 <p>例：</p>
 <pre><code class="html">&lt;input id=&quot;textBox&quot; type=&quot;text&quot; /&gt;
 &lt;div id=&quot;output&quot;&gt;&lt;/div&gt;
@@ -501,8 +501,8 @@ textBox.addEventListener(&quot;keydown&quot;, (event) =&gt; &#123;
   output.textContent = `You pressed &quot;$&#123;event.key&#125;&quot;.`;
 &#125;);
 </code></pre>
-<p>运行后，每当你在输入框内敲下字母，将会显示你刚敲下的内容。</p>
-<h4 id="阻止默认行为"><a href="#阻止默认行为" class="headerlink" title="阻止默认行为"></a>阻止默认行为</h4><p>以下代码创造表单，要求填入名和姓，并有提交按钮。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;运行后，每当你在输入框内敲下字母，将会显示你刚敲下的内容。</p>
+<h4 id="阻止默认行为"><a href="#阻止默认行为" class="headerlink" title="阻止默认行为"></a>阻止默认行为</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以下代码创造表单，要求填入名和姓，并有提交按钮。</p>
 <pre><code class="html">&lt;form&gt;
   &lt;div&gt;
     &lt;label for=&quot;fname&quot;&gt;First name: &lt;/label&gt;
@@ -518,7 +518,7 @@ textBox.addEventListener(&quot;keydown&quot;, (event) =&gt; &#123;
 &lt;/form&gt;
 &lt;p&gt;&lt;/p&gt;
 </code></pre>
-<p>在submit事件中实行简单检查，如果文本字段为空，调用<code>preventDefault()</code>停止提交并报告错误信息，否则继续提交。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在submit事件中实行简单检查，如果文本字段为空，调用<code>preventDefault()</code>停止提交并报告错误信息，否则继续提交。</p>
 <pre><code class="js">const form = document.querySelector(&quot;form&quot;);
 const fname = document.getElementById(&quot;fname&quot;);
 const lname = document.getElementById(&quot;lname&quot;);
@@ -538,7 +538,7 @@ form.addEventListener(&quot;submit&quot;, (e) =&gt; &#123;
 &lt;pre id=&quot;output&quot;&gt;&lt;/pre&gt;
 &lt;/body&gt;    
 </code></pre>
-<p>在父元素上附加事件处理器，也会触发单击事件：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在父元素上附加事件处理器，也会触发单击事件：</p>
 <pre><code class="js">const output = document.querySelector(&quot;#output&quot;);
 function handleClick(e) &#123;
   output.textContent += `你在 $&#123;e.currentTarget.tagName&#125; 元素上进行了点击\n`;
@@ -547,7 +547,7 @@ function handleClick(e) &#123;
 const container = document.querySelector(&quot;#container&quot;);
 container.addEventListener(&quot;click&quot;, handleClick);
 </code></pre>
-<p>在父元素与按钮上同时附加事件处理器，都会触发：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在父元素与按钮上同时附加事件处理器，都会触发：</p>
 <pre><code class="js">const output = document.querySelector(&quot;#output&quot;);
 function handleClick(e) &#123;
   output.textContent += `你在 $&#123;e.currentTarget.tagName&#125; 元素上进行了点击\n`;
@@ -592,9 +592,9 @@ btn.addEventListener(&quot;click&quot;, () =&gt; box.classList.remove(&quot;hidd
 video.addEventListener(&quot;click&quot;, () =&gt; video.play());
 box.addEventListener(&quot;click&quot;, () =&gt; box.classList.add(&quot;hidden&quot;));
 </code></pre>
-<p>​	当点击按钮后，因为div包含着video，盒子和视频都会同时显示，当点击视频时，会同时运行两个事件处理器，所以视频播放但盒子又消失了。</p>
-<h4 id="使用stopPropagation-修复问题"><a href="#使用stopPropagation-修复问题" class="headerlink" title="使用stopPropagation()修复问题"></a>使用stopPropagation()修复问题</h4><p>​	Event对象有一个<code>stopPropagation()</code>函数，可以在当一个事件处理器调用时防止事件向其他元素传递。</p>
-<p>​	将video的addEventListener修改即可解决问题:</p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当点击按钮后，因为div包含着video，盒子和视频都会同时显示，当点击视频时，会同时运行两个事件处理器，所以视频播放但盒子又消失了。</p>
+<h4 id="使用stopPropagation-修复问题"><a href="#使用stopPropagation-修复问题" class="headerlink" title="使用stopPropagation()修复问题"></a>使用stopPropagation()修复问题</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Event对象有一个<code>stopPropagation()</code>函数，可以在当一个事件处理器调用时防止事件向其他元素传递。</p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将video的addEventListener修改即可解决问题:</p>
 <pre><code class="js">video.addEventListener(&quot;click&quot;, (event) =&gt; &#123;
   event.stopPropagation();
   video.play();
@@ -603,7 +603,7 @@ box.addEventListener(&quot;click&quot;, () =&gt; box.classList.add(&quot;hidden&
 <h4 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h4><blockquote>
 <p> 先在<em>最小嵌套</em>元素上发生，然后在连续更多的嵌套元素上发生，直到达到目标</p>
 </blockquote>
-<p>事件捕获默认禁用，需要在<code>addEventListener()</code>中的<code>capture</code>选项中启用</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;事件捕获默认禁用，需要在<code>addEventListener()</code>中的<code>capture</code>选项中启用</p>
 <p>接事件冒泡中的代码：</p>
 <pre><code class="js">const output = document.querySelector(&quot;#output&quot;);
 function handleClick(e) &#123;
@@ -623,8 +623,8 @@ button.addEventListener(&quot;click&quot;, handleClick);
     你在BUTTON元素上进行了点击
 */
 </code></pre>
-<h4 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h4><p>​	可以在父元素上设置监听器，让发生在它们身上的事件冒泡到父元素上。</p>
-<p>​	<em>当用户点击一个按钮时页面的区域设置成随机颜色</em></p>
+<h4 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以在父元素上设置监听器，让发生在它们身上的事件冒泡到父元素上。</p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>当用户点击一个按钮时页面的区域设置成随机颜色</em></p>
 <pre><code class="html">&lt;div id=&quot;container&quot;&gt;
   &lt;div class=&quot;tile&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;tile&quot;&gt;&lt;/div&gt;
