@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="utf-8" />
-        <title>javaScript基础学习ver1.1 | Bin&#39;s blog</title>
+        <title>javaScript基础学习ver1.2 | Bin&#39;s blog</title>
         <meta name="author" content="Binbin" />
         <meta name="description" content="小彬彬的博客" />
         <meta name="keywords" content="hexo,node,blog" />
@@ -147,7 +147,7 @@
             <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
                 <div class="article">
     <div>
-        <h1>javaScript基础学习ver1.1</h1>
+        <h1>javaScript基础学习ver1.2</h1>
     </div>
     <div class="info">
         <span class="date">
@@ -175,7 +175,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E7%AC%94%E8%AE%B0-%E5%AD%A6%E4%B9%A0-js/" style="color: #ff7d73">笔记,学习,js</a>
+                <a href="/tags/%E7%AC%94%E8%AE%B0-%E5%AD%A6%E4%B9%A0-js/" style="color: #03a9f4">笔记,学习,js</a>
             </span>
             
         </span>
@@ -183,7 +183,7 @@
     </div>
     
     <div class="content" v-pre>
-        <p>2023.10.21: 优化了排版，更新至ver1.1<br>2023.10.19：更新js ver1.0</p>
+        <p>2023.10.22: 更新了js对象内容(ver1.2)<br>2023.10.21: 优化了排版，更新至ver1.1<br>2023.10.19：更新js ver1.0</p>
 <hr>
 <h1 id="JavaScript学习（MDN）"><a href="#JavaScript学习（MDN）" class="headerlink" title="JavaScript学习（MDN）"></a>JavaScript学习（MDN）</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在MDN上的javascript基础学习。</p>
 <span id="more"></span>
@@ -665,6 +665,360 @@ container.addEventListener(&quot;click&quot;, (event) =&gt;&#123;
     event.target.style.backgroundColor = bgChange();
 &#125;);
 </code></pre>
+<h2 id="javaScript对象介绍"><a href="#javaScript对象介绍" class="headerlink" title="javaScript对象介绍"></a>javaScript对象介绍</h2><h3 id="java对象基础"><a href="#java对象基础" class="headerlink" title="java对象基础"></a>java对象基础</h3><h4 id="构造对象以及表示法"><a href="#构造对象以及表示法" class="headerlink" title="构造对象以及表示法"></a>构造对象以及表示法</h4><pre><code class="js">/*构造一个空对象*/
+const person = &#123;&#125;;
+</code></pre>
+<pre><code class="js">/*用对象字面量创造对象*/
+const person = &#123;
+  name: [&quot;Bob&quot;, &quot;Smith&quot;],
+  age: 32,
+ 
+  bio() &#123;
+    console.log(`$&#123;this.name[0]&#125; $&#123;this.name[1]&#125; 现在 $&#123;this.age&#125; 岁了。`);
+  &#125;,
+  introduceSelf() &#123;
+    console.log(`你好！我是 $&#123;this.name[0]&#125;。`);
+  &#125;,
+&#125;;
+
+/*	调用对象方法和属性  
+    1.点表示法		*/
+person.name;
+person.name[0];
+person.age;
+person.bio();
+// &quot;Bob Smith 现在 32 岁了。&quot;
+person.introduceSelf();
+// &quot;你好！我是 Bob。&quot;
+
+/*	2,括号表示法		*/
+person[&quot;age&quot;];
+person[&quot;name&quot;][&quot;first&quot;];
+</code></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;多数情况下用<strong>点表示法</strong>，但某些情况下你必须用<strong>括号表示法</strong>。</p>
+<pre><code class="js">/*当对象属性名称保存在变量中，只能用括号表示法*/
+const person = &#123;
+    name: [&quot;Bob&quot;, &quot;Smith&quot;];
+    age:32;
+&#125;;
+
+function logProperty(propertyName)&#123;
+    console.log(person[propertyName]);
+&#125;
+
+logProperty(&quot;name&quot;);
+//[&quot;Bob&quot;, &quot;Smith&quot;]
+logProperty(&quot;age&quot;);
+// 32
+</code></pre>
+<h4 id="子命令空间"><a href="#子命令空间" class="headerlink" title="子命令空间"></a>子命令空间</h4><pre><code class="js">/*用一个对象来做另一个对象成员的值*/
+const person = &#123;
+    name:&#123;
+          first:&quot;Bob&quot;,
+        last:&quot;Smith&quot;,
+    &#125;
+&#125;;
+
+//访问
+person.name.first;
+person.name.last;
+</code></pre>
+<h4 id="设置对象成员"><a href="#设置对象成员" class="headerlink" title="设置对象成员"></a>设置对象成员</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>括号表示法</strong>可以动态创建成员名字，而<strong>点表示法</strong>不行。</p>
+<pre><code class="js">/*设置对象成员*/
+person.age = 45;
+person[&quot;name&quot;][&quot;last&quot;] = &quot;Cratchit&quot;;
+
+/*创建对象成员*/
+person[&quot;eyes&quot;] = &quot;hazel&quot;;
+person.farewell = function()&#123;
+  console.log(&quot;再见！&quot;);  
+&#125;;
+
+person[&quot;eyes&quot;];
+person.farewell();
+</code></pre>
+<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><pre><code class="js">/*创造person的构造函数*/
+function Person(name)&#123;
+    this.name = name;
+    this.introduceSelf = function(
+        console.log(`你好！我是$(this.name)。`);
+    ); 
+&#125;
+
+/*调用构造函数*/
+const salva = new Person(&quot;Salva&quot;);
+salva.name;
+salva.introduceSelf();
+// &quot;你好！我是 Salva。&quot;
+</code></pre>
+<h3 id="对象原型"><a href="#对象原型" class="headerlink" title="对象原型"></a>对象原型</h3><h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><pre><code class="js">const myObject = &#123;
+  city: &quot;Madrid&quot;,
+  greet()&#123;
+    console.log(`来自$(this.city)的问候`);  
+  &#125;,
+&#125;;
+myObject.greet(); 
+//来自 Madrid 的问候
+</code></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;调用myObject.时,出现以下信息</p>
+<pre><code class="js">__defineGetter__
+__defineSetter__
+__lookupGetter__
+__lookupSetter__
+__proto__
+city
+constructor
+greet
+hasOwnProperty
+isPrototypeOf
+propertyIsEnumerable
+toLocaleString
+toString
+valueOf
+
+//调用其中的toString
+myObject.toString(); //&quot;[object Object]&quot;
+</code></pre>
+<blockquote>
+<p>javaScript中所有对象都有一个内置属性，称作原型，原型对象也会有自己的原型，逐渐构成了原型链，原型链终止于拥有null作为其原型的对象上。</p>
+</blockquote>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当访问一个对象的属性时，如果在其本身找不到该属性，就会在原型中搜索，仍然找不到则继续搜索原型的原型，直到链的末端（返回undefined）。</p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Object.prototype</code>是最基础的原型，所有对象默认都拥有它，</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;它的原型是<code>null</code>，故其位于原型链的终点。</p>
+<p><img src="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object_prototypes/myobject-prototype-chain.svg"></p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一个对象的原型不一定就是<code>Object.prototype</code></p>
+<pre><code class="js">const myDate = new Date();
+let object = myDate;
+
+do &#123;
+  object = Object.getPrototypeOf(object);
+  console.log(object);
+&#125; while (object);
+
+// Date.prototype
+// Object &#123; &#125;
+// null
+</code></pre>
+<p><img src="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object_prototypes/mydate-prototype-chain.svg"></p>
+<h4 id="属性遮蔽"><a href="#属性遮蔽" class="headerlink" title="属性遮蔽"></a>属性遮蔽</h4><blockquote>
+<p>如果在对象中定义属性，而在对象原型中也定义了一个同名属性会发生什么？</p>
+</blockquote>
+<pre><code class="js">const myDate = new Date(1995, 11, 17);
+console.log(myDate.getYear()); // 95
+myDate.getYear = function () &#123;
+  console.log(&quot;别的东西！&quot;);
+&#125;;
+myDate.getYear(); // &#39;别的东西！&#39;
+
+/*调用 getYear时，会先在myDate中寻找。这叫做属性遮蔽 */
+</code></pre>
+<h4 id="设置原型"><a href="#设置原型" class="headerlink" title="设置原型"></a>设置原型</h4><pre><code class="js">/*方式一：使用Object.create()*/
+const personPrototype = &#123;
+  greet() &#123;
+    console.log(&quot;hello!&quot;);
+  &#125;,
+&#125;;
+//创造一个以personPrototype为原型的新对象
+const carl = Object.create(personPrototype);
+//原型为对象提供了greet方法
+carl.greet();
+
+
+/*方式二：使用构造函数*/
+//创造personPrototype对象，该对象具有方法greet。
+const personPrototype = &#123;
+  greet() &#123;
+    console.log(`你好，我的名字是 $&#123;this.name&#125;！`);
+  &#125;,
+&#125;;
+
+//创造Person的构造函数
+function Person(name) &#123;
+  this.name = name;
+&#125;
+
+//将personPrototype中的方法绑定到Person的prototype属性上
+Object.assign(Person.prototype, personPrototype);
+// 或
+// Person.prototype.greet = personPrototype.greet;
+
+//调用
+const reuben = new Person(&quot;Reuben&quot;);
+reuben.greet(); // 你好，我的名字是 Reuben！
+</code></pre>
+<h4 id="自有属性"><a href="#自有属性" class="headerlink" title="自有属性"></a>自有属性</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;直接在对象中定义的属性，被称为<strong>自有属性</strong>。</p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用静态方法 <code>Object.hasOwn()</code>检查一个属性是否是自有属性。</p>
+<pre><code class="js">const irma = new Person(&quot;Irma&quot;);
+console.log(Object.hasOwn(irma, &quot;name&quot;)); // true
+console.log(Object.hasOwn(irma, &quot;greet&quot;)); // false
+</code></pre>
+<h3 id="面向对象编程基本概念"><a href="#面向对象编程基本概念" class="headerlink" title="面向对象编程基本概念"></a>面向对象编程基本概念</h3><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;java方面知识，不再赘述。</p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>javaScript中的原型与对象很像java中的类与对象，但两者依旧有区别。</strong></p>
+<h3 id="javaScript中的类"><a href="#javaScript中的类" class="headerlink" title="javaScript中的类"></a>javaScript中的类</h3><h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><pre><code class="js">//用class声明一个类
+class Person&#123;
+    name;
+    //构造函数
+    constructor(name)&#123;
+        this.name = name;
+    &#125;
+    introduceSelf()&#123;
+        console.log(`Hi! I&#39;m $&#123;this.name&#125;`);
+    &#125;
+&#125;
+//创建并使用
+const giles = new Person(&quot;Giles&quot;);
+giles.introduceSelf(); // Hi! I&#39;m Giles
+</code></pre>
+<h4 id="省略构造函数"><a href="#省略构造函数" class="headerlink" title="省略构造函数"></a>省略构造函数</h4><pre><code class="js">/*不需要初始化时，默认构造函数将自动生成*/
+class Animal &#123;
+  sleep() &#123;
+    console.log(&quot;zzzzzzz&quot;);
+  &#125;
+&#125;
+
+const spot = new Animal();
+spot.sleep(); //&#39;zzzzzzz&#39;
+</code></pre>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><pre><code class="js">class Professor extends Person&#123;
+    teaches;
+    
+    constructor(name, teaches)&#123;
+        super(name);
+        this.teaches = teaches;
+    &#125;
+    
+    introduceSelf() &#123;
+        console.log(
+          `My name is $&#123;this.name&#125;, and I will be your $&#123;this.teaches&#125; professor.`,
+    )&#125;;
+    
+    grade(paper) &#123;
+        const grade = Math.floor(Math.random() * (5 - 1) + 1);
+        console.log(grade);
+  &#125;
+&#125;
+
+
+//使用
+const walsh = new Professor(&quot;Walsh&quot;, &quot;Psychology&quot;);
+walsh.introduceSelf();
+// &#39;My name is Walsh, and I will be your Psychology professor&#39;
+walsh.grade(&quot;my paper&quot;); // some random grade
+</code></pre>
+<h4 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h4><pre><code class="js">class Student extends Person &#123;
+  //#year是私有数据属性,&#39;用#&#39;表示。
+   #year;
+  constructor(name, year) &#123;
+    super(name);
+    this.#year = year;
+  &#125;
+  introduceSelf() &#123;
+    console.log(`Hi! I&#39;m $&#123;this.name&#125;, and I&#39;m in year $&#123;this.#year&#125;.`);
+  &#125;
+  canStudyArchery() &#123;
+    return this.#year &gt; 1;
+  &#125;
+&#125;
+
+//在类的外部尝试访问#year将会出错
+const summers = new Student(&quot;Summers&quot;, 2);
+summers.#year; // SyntaxError
+</code></pre>
+<h4 id="私有方法"><a href="#私有方法" class="headerlink" title="私有方法"></a>私有方法</h4><pre><code class="js">//与私有属性一样
+class Example &#123;
+  somePublicMethod() &#123;
+    this.#somePrivateMethod();
+  &#125;
+  #somePrivateMethod() &#123;
+    console.log(&quot;You called me?&quot;);
+  &#125;
+&#125;
+const myExample = new Example();
+myExample.somePublicMethod(); // &#39;You called me?&#39;
+myExample.#somePrivateMethod(); // SyntaxError
+</code></pre>
+<h3 id="使用JSON"><a href="#使用JSON" class="headerlink" title="使用JSON"></a>使用JSON</h3><h4 id="JSON简介"><a href="#JSON简介" class="headerlink" title="JSON简介"></a>JSON简介</h4><blockquote>
+<p>javaScript对象表示法（JSON）是用于将结构化数据表示为 JavaScript 对象的标准格式，通常用于在网站上表示和传输数据。</p>
+</blockquote>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSON可以作为一个对象或者字符串存在，前者用于解读JSON中的数据，后者用于通过网络传输JSON数据。</p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将字符串转换为原生对象称为反序列化，原生对象转换为字符串称为序列化。</p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSON存储在<code>.json</code>中。</p>
+<p>​</p>
+<h4 id="JSON结构"><a href="#JSON结构" class="headerlink" title="JSON结构"></a>JSON结构</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSON类似于对象字面量。</p>
+<pre><code class="json">&#123;
+  &quot;squadName&quot;: &quot;Super hero squad&quot;,
+  &quot;homeTown&quot;: &quot;Metro City&quot;,
+  &quot;formed&quot;: 2016,
+  &quot;secretBase&quot;: &quot;Super tower&quot;,
+  &quot;active&quot;: true,
+  &quot;members&quot;: [
+    &#123;
+      &quot;name&quot;: &quot;Molecule Man&quot;,
+      &quot;age&quot;: 29,
+      &quot;secretIdentity&quot;: &quot;Dan Jukes&quot;,
+      &quot;powers&quot;: [&quot;Radiation resistance&quot;, &quot;Turning tiny&quot;, &quot;Radiation blast&quot;]
+    &#125;,
+    &#123;
+      &quot;name&quot;: &quot;Madame Uppercut&quot;,
+      &quot;age&quot;: 39,
+      &quot;secretIdentity&quot;: &quot;Jane Wilson&quot;,
+      &quot;powers&quot;: [
+        &quot;Million tonne punch&quot;,
+        &quot;Damage resistance&quot;,
+        &quot;Superhuman reflexes&quot;
+      ]
+    &#125;,
+    &#123;
+      &quot;name&quot;: &quot;Eternal Flame&quot;,
+      &quot;age&quot;: 1000000,
+      &quot;secretIdentity&quot;: &quot;Unknown&quot;,
+      &quot;powers&quot;: [
+        &quot;Immortality&quot;,
+        &quot;Heat Immunity&quot;,
+        &quot;Inferno&quot;,
+        &quot;Teleportation&quot;,
+        &quot;Interdimensional travel&quot;
+      ]
+    &#125;
+  ]
+&#125;
+</code></pre>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将字符串加载入js程序中，并解析到名叫<code>superHeroes</code>变量中，可以用该变量访问数据。</p>
+<pre><code class="json">superHeroes.hometown;
+superHeroes[&quot;active&quot;];
+//访问members数组的第二个元素，其中的powers数组的第三个元素
+superHeroes[&quot;members&quot;][1][&quot;powers&quot;][2];
+</code></pre>
+<h4 id="JSON数组"><a href="#JSON数组" class="headerlink" title="JSON数组"></a>JSON数组</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数组与JSON可以相互转换，比如这样写依然有效。</p>
+<pre><code class="json">[
+    &#123;
+    &quot;name&quot;: &quot;Molecule Man&quot;,
+    &quot;age&quot;: 29,
+    &quot;secretIdentity&quot;: &quot;Dan Jukes&quot;,
+    &quot;powers&quot;: [&quot;Radiation resistance&quot;, &quot;Turning tiny&quot;, &quot;Radiation blast&quot;]
+  &#125;,
+  &#123;
+    &quot;name&quot;: &quot;Madame Uppercut&quot;,
+    &quot;age&quot;: 39,
+    &quot;secretIdentity&quot;: &quot;Jane Wilson&quot;,
+    &quot;powers&quot;: [
+      &quot;Million tonne punch&quot;,
+      &quot;Damage resistance&quot;,
+      &quot;Superhuman reflexes&quot;
+    ]
+  &#125;
+]
+
+
+//调用
+[0][&quot;powers&quot;][0];
+</code></pre>
+<h4 id="JSON注意事项"><a href="#JSON注意事项" class="headerlink" title="JSON注意事项"></a>JSON注意事项</h4><ul>
+<li>是纯数据格式，只有属性，没有方法。</li>
+<li>要求在字符串和属性名称周围用<strong>双引号</strong>。</li>
+<li>JSON文件很容易出错，可以用<a target="_blank" rel="noopener" href="https://jsonlint.com/">JSONLint</a>验证JSON。</li>
+<li>JSON中只有带引号的字符串可以用作属性。</li>
+</ul>
 
     </div>
     
