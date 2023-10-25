@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="utf-8" />
-        <title>Bin&#39;s blog</title>
+        <title>DOM学习 | Bin&#39;s blog</title>
         <meta name="author" content="Binbin" />
         <meta name="description" content="小彬彬的博客" />
         <meta name="keywords" content="hexo,node,blog" />
@@ -33,7 +33,9 @@
 
 
 
-<script src="/js/lib/home.js"></script>
+
+
+
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -143,33 +145,17 @@
 </transition>
 
             <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-                <div id="home-head">
-    <div id="home-background" ref="homeBackground" data-images="/images/background.webp"></div>
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>Bin&#39;s blog</h1>
-                <h3></h3>
-                <h5>小彬彬的博客</h5>
-                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1367153994&auto=1&height=66"></iframe>
-            </div>
-        </span>
+                <div class="article">
+    <div>
+        <h1>DOM学习</h1>
     </div>
-</div>
-
-<div id="home-posts-wrap" true ref="homePostsWrap">
-    <div id="home-posts">
-        
-
-<div class="post">
-    <a href="/2023/10/25/DOM%E5%AD%A6%E4%B9%A0/">
-        <h2 class="post-title">DOM学习</h2>
-    </a>
-    <div class="category-and-date">
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/25
+        </span>
         
         <span class="category">
             <a href="/categories/%E5%AD%A6%E4%B9%A0/">
@@ -180,19 +166,24 @@
             </a>
         </span>
         
-        <span class="date">
+        
+        <span class="tags">
             <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
+                <i class="fa-solid fa-tags fa-fw"></i>
             </span>
-            2023/10/25
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/DOM-%E5%AD%A6%E4%B9%A0/" style="color: #00bcd4">DOM,学习</a>
+            </span>
+            
         </span>
         
-        
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h2 id="DOM基础"><a href="#DOM基础" class="headerlink" title="DOM基础"></a>DOM基础</h2><h3 id="DOM概述"><a href="#DOM概述" class="headerlink" title="DOM概述"></a>DOM概述</h3><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DOM(<strong>文档对象模型</strong>)是一个网络文档的<strong>编程接口</strong>，DOM将文档表示为节点和对象，因此编程语言可以和页面交互。</p>
+    
+    <div class="content" v-pre>
+        <h2 id="DOM基础"><a href="#DOM基础" class="headerlink" title="DOM基础"></a>DOM基础</h2><h3 id="DOM概述"><a href="#DOM概述" class="headerlink" title="DOM概述"></a>DOM概述</h3><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DOM(<strong>文档对象模型</strong>)是一个网络文档的<strong>编程接口</strong>，DOM将文档表示为节点和对象，因此编程语言可以和页面交互。</p>
 <p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网页是既可以在浏览器窗口中显示，又可以作为HTML源代码的文档，用DOM使它可以被操作。</p>
 <pre><code class="js">const paragraphs = document.querySelectorAll(&quot;p&quot;);
 //paragraphs[0], paragraphs[1]...
@@ -460,364 +451,13 @@ function log(msg)&#123;
     log(&quot;Logging mouse events inside this container...&quot;);
 </code></pre>
 
-            
-        </div>
     </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/DOM-%E5%AD%A6%E4%B9%A0/" style="color: #ff7d73">DOM,学习</a>
-        </span>
-        
-    </div>
-    <a href="/2023/10/25/DOM%E5%AD%A6%E4%B9%A0/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/10/19/javascript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0ver1-0/">
-        <h2 class="post-title">javaScript基础学习ver1.2</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E5%AD%A6%E4%B9%A0/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                学习
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/10/19
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>2023.10.22: 更新了js对象内容(ver1.2)<br>2023.10.21: 优化了排版，更新至ver1.1<br>2023.10.19：更新js ver1.0</p>
-<hr>
-<h1 id="JavaScript学习（MDN）"><a href="#JavaScript学习（MDN）" class="headerlink" title="JavaScript学习（MDN）"></a>JavaScript学习（MDN）</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在MDN上的javascript基础学习。</p>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E7%AC%94%E8%AE%B0-%E5%AD%A6%E4%B9%A0-js/" style="color: #00a596">笔记,学习,js</a>
-        </span>
-        
-    </div>
-    <a href="/2023/10/19/javascript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0ver1-0/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/10/16/sql%E5%AD%A6%E4%B9%A0ver1-0/">
-        <h2 class="post-title">sql学习ver1.0</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E5%AD%A6%E4%B9%A0/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                学习
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/10/16
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>2023.10.19：文章周末更新，会把排版优化一下~<br>2023.10.16：更新sql ver1.0</p>
-<hr>
-<h2 id="数据库概念"><a href="#数据库概念" class="headerlink" title="数据库概念"></a>数据库概念</h2><p>操作者用SQL语言向数据库管理系统(DBMS)发出指令，系统在数据库(DB)里进行操作。</p>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E5%AD%A6%E4%B9%A0-mysql/" style="color: #00a596">学习,mysql</a>
-        </span>
-        
-    </div>
-    <a href="/2023/10/16/sql%E5%AD%A6%E4%B9%A0ver1-0/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/10/09/%E8%BF%91%E6%9C%9F%E8%AE%A1%E5%88%92/">
-        <h2 class="post-title">近期计划</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/10/9
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h2 id="今年剩下的梦想：-难度从低到高"><a href="#今年剩下的梦想：-难度从低到高" class="headerlink" title="今年剩下的梦想： (难度从低到高)"></a>今年剩下的梦想： (难度从低到高)</h2><div class="aplayer" data-id="000PeZCQ1i4XVs" data-server="tencent" data-type="artist" data-preload="auto" data-theme="#3F51B5"></div>
-
-<ul>
-<li><p><del>买一张SSD</del></p>
-</li>
-<li><p>买一台显示器(在攒钱ing)  </p>
-</li>
-<li><p>把sql和web学会(慢慢来吧)  </p>
-</li>
-<li><p>拿到学校奖学金</p>
-</li>
-<li><p>进回声实验室(概率太低了，我觉得几乎不可能)</p>
-</li>
-</ul>
-<p>完成一项就会划掉一项，年末审视自己，能把前两项做好我觉得已经很满足了哦，至于后面的三项，能走到哪里就走到哪里吧（我终究是个普通人罢了）</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2023/10/09/%E8%BF%91%E6%9C%9F%E8%AE%A1%E5%88%92/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/10/05/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-003/">
-        <h2 class="post-title">从零开始的博客搭建生活-003</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E5%BC%80%E5%8F%91/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                开发
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/10/5
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>前文指引：  </p>
-<a href="/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/" title="从零开始的博客搭建生活-001">从零开始的博客搭建生活-001</a>
-<br>
-<br>
-<a href="/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/" title="从零开始的博客搭建生活-002">从零开始的博客搭建生活-002</a>  
-
-<p>今天写的是对博客各种功能的学习。预计这个系列在下一集就会完结www。<br><br> </p>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E7%BD%91%E9%A1%B5-Hexo-%E5%8D%9A%E5%AE%A2/" style="color: #00a596">网页,Hexo,博客</a>
-        </span>
-        
-    </div>
-    <a href="/2023/10/05/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-003/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/">
-        <h2 class="post-title">从零开始的博客搭建生活-002</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E5%BC%80%E5%8F%91/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                开发
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/10/3
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>前文指引：<a href="/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/" title="从零开始的博客搭建生活-001">从零开始的博客搭建生活-001</a></p>
-<img src="/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/photo3.jpg">
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E7%BD%91%E9%A1%B5-Hexo-%E5%8D%9A%E5%AE%A2/" style="color: #00a596">网页,Hexo,博客</a>
-        </span>
-        
-    </div>
-    <a href="/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/">
-        <h2 class="post-title">从零开始的博客搭建生活-001</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E5%BC%80%E5%8F%91/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                开发
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/10/1
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p><del>这是一个预谋已久的计划</del><br>准备搭建一个属于自己的个人博客，至于原因，就是闲来无事在上面写点文章。<br>该系列会持续更新，这是第一篇，大概会更新4~5集，讲讲我这个新手从零开始的艰辛路程（）</p>
-<p><img src="https://cdnimg.gamekee.com/wiki2.0/images/w_3648/h_2753/829/43637/2022/11/14/817958.png" alt="小天使镇楼"></p>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E7%BD%91%E9%A1%B5-Hexo-%E5%8D%9A%E5%AE%A2/" style="color: #03a9f4">网页,Hexo,博客</a>
-        </span>
-        
-    </div>
-    <a href="/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/" class="go-post">阅读全文</a>
-</div>
-
-
-        <div class="page-current">
     
-    <span class="current">1</span>
     
     
     
     
-</div>
-
-    </div>
     
-    <div id="home-card">
-        <div id="card-style">
-    <div id="card-div">
-        <div class="avatar">
-            <img src="/images/pic.jpg" alt="avatar" />
-        </div>
-        <div class="name">Binbin</div>
-        <div class="description">
-            <p>Description<br>A Programming novice</p>
-
-        </div>
-        
-        
-        <div class="friend-links">
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://null-qwerty.top/">Null-qwerty</a>
-            </div>
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://argvchs.github.io">Argvchs</a>
-            </div>
-            
-        </div>
-        
-    </div>
-</div>
-
-    </div>
     
 </div>
 
@@ -849,6 +489,12 @@ function log(msg)&#123;
             
         </div>
         <script src="/js/main.js"></script>
+        
+        
+
+
+
+
         
     </body>
 </html>
