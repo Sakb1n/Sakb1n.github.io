@@ -34,10 +34,6 @@
 
 
 
-<script src="https://cdn.staticfile.org/waline/2.15.5/waline.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.15.5/waline.min.css" />
-<link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.15.5/waline-meta.min.css" />
-
 
 
 
@@ -456,18 +452,170 @@ function log(msg)&#123;
 &#125;
     log(&quot;Logging mouse events inside this container...&quot;);
 </code></pre>
+<h3 id="element-setAttribute"><a href="#element-setAttribute" class="headerlink" title="element.setAttribute"></a>element.setAttribute</h3><h4 id="概要-4"><a href="#概要-4" class="headerlink" title="概要"></a>概要</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置指定元素上的某个属性值，若该属性存在则更新该值，否则使用指定的名称和值添加一个新的属性，返回undefined。</p>
+<h4 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h4><pre><code class="js">element.setAttribute(name, value)
+/*
+    name:表示属性名称的字符串
+    value:属性的值
+*/
+</code></pre>
+<h4 id="示例-5"><a href="#示例-5" class="headerlink" title="示例"></a>示例</h4><pre><code class="js">//为HTML的button设置属性
+let b = document.querySelector(&quot;button&quot;);
+b.setAttribute(&quot;name&quot;, &quot;helloButton&quot;);
+b.setAttribute(&quot;disabled&quot;, &quot;&quot;);
+</code></pre>
+<h3 id="element-getAttribute"><a href="#element-getAttribute" class="headerlink" title="element.getAttribute"></a>element.getAttribute</h3><h4 id="概要-5"><a href="#概要-5" class="headerlink" title="概要"></a>概要</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回元素上一个指定的属性值，若指定的属性不存在，返回<code>null</code>	或<code>&quot;&quot;</code>。</p>
+<h4 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h4><pre><code class="js">let attribute = element.getAttribute(attributeName);
+/*
+    attributeName:你想获取属性值的属性名称。
+*/
+</code></pre>
+<h4 id="示例-6"><a href="#示例-6" class="headerlink" title="示例"></a>示例</h4><pre><code class="js">let div1 = document.getElementById(&quot;div1&quot;);
+let align = div1.getAttribute(&quot;align&quot;);
+alert(align);
+</code></pre>
+<h3 id="EventTarget-addEventListener"><a href="#EventTarget-addEventListener" class="headerlink" title="EventTarget.addEventListener"></a>EventTarget.addEventListener</h3><h4 id="概要-6"><a href="#概要-6" class="headerlink" title="概要"></a>概要</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将指定的监听器注册到<code>EventTarget</code>上，该对象触发指定的事件时，相应的回调函数会被执行，无返回值。</p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>EventTarget</code>可以是<code>Element</code>、<code>Document</code>、<code>Window</code>和任何支持事件的对象。</p>
+<blockquote>
+<p>使用 <code>addEventListener()</code>的优点：</p>
+<ul>
+<li>它允许为一个事件添加多个监听器。特别是对库、JavaScript 模块和其他需要兼容第三方库&#x2F;插件的代码来说，这一功能很有用。</li>
+<li>相比于 <code>onXYZ</code> 属性绑定来说，它提供了一种更精细的手段来控制 <code>listener</code> 的触发阶段。（即可以选择捕获或者冒泡）。</li>
+<li>它对任何事件都有效，而不仅仅是 HTML 或 SVG 元素。</li>
+</ul>
+</blockquote>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将<code>EventListener</code>的函数或对象添加到调用它的<code>EventTarget</code></p>
+<p>的事件侦听器列表中，若已被添加则不会重复该操作。</p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当一个<code>EventListener</code>在处理事件时被注册到<code>EventTarget</code>上时，不会被立即触发。</p>
+<blockquote>
+<p>​	如果先前向事件侦听器列表中添加过一个匿名函数，并且在之后的代码中调用 <code>addEventListener</code> 来添加一个功能完全相同的匿名函数，那么之后的这个匿名函数<em>也会</em>被添加到列表中。</p>
+<p>​	实际上，即使使用<em>完全相同</em>的代码来定义一个匿名函数，这两个函数仍然存在区别，<strong>在循环中也是如此</strong>。在使用该方法的情况下，匿名函数的重复定义会带来许多麻烦。</p>
+</blockquote>
+<h4 id="语法-6"><a href="#语法-6" class="headerlink" title="语法"></a>语法</h4><pre><code class="js">addEventLister(type, listener, [options], [useCapture]);
+/*
+    type:监听类型
+    listener：一个实现了EventListener接口的对象，或函数
+    options：capture(事件捕获), once(最多只调用一次),passive(不会调用preventDefault), signal(abort()方法被调用时，监听器被移除)
+    useCapture:是否要先于它下面的EventTarget调用该Listener(不太懂这个...)
+*/
+</code></pre>
+<h4 id="示例-7"><a href="#示例-7" class="headerlink" title="示例"></a>示例</h4><pre><code class="html">&lt;table id=&quot;outside&quot;&gt;
+  &lt;tr&gt;
+    &lt;td id=&quot;t1&quot;&gt;one&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td id=&quot;t2&quot;&gt;two&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<pre><code class="js">/*1.添加一个简单的监听器*/
+// 为 table 添加事件监听器
+const el = document.getElementById(&quot;outside&quot;);
+el.addEventListener(&quot;click&quot;, modifyText, false);
+
+// 改变 t2 内容的函数
+function modifyText() &#123;
+  const t2 = document.getElementById(&quot;t2&quot;);
+  const isNodeThree = t2.firstChild.nodeValue === &quot;three&quot;;
+  t2.firstChild.nodeValue = isNodeThree ? &quot;two&quot; : &quot;three&quot;;
+&#125;
+
+/*2.添加一个可被移除的监听器*/
+// 为 table 添加可被移除的事件监听器
+const controller = new AbortController();
+const el = document.getElementById(&quot;outside&quot;);
+el.addEventListener(&quot;click&quot;, modifyText, &#123; signal: controller.signal &#125;);
+
+// 改变 t2 内容的函数
+function modifyText() &#123;
+  const t2 = document.getElementById(&quot;t2&quot;);
+  if (t2.firstChild.nodeValue === &quot;three&quot;) &#123;
+    t2.firstChild.nodeValue = &quot;two&quot;;
+  &#125; else &#123;
+    t2.firstChild.nodeValue = &quot;three&quot;;
+    controller.abort(); // 当值变为 &quot;three&quot; 后，移除监听器
+  &#125;
+&#125;
+
+/*3.带有匿名函数的监听器*/
+// 改变 t2 内容的函数
+function modifyText(new_text) &#123;
+  const t2 = document.getElementById(&quot;t2&quot;);
+  t2.firstChild.nodeValue = new_text;
+&#125;
+
+// 用匿名函数为 table 添加事件监听器
+const el = document.getElementById(&quot;outside&quot;);
+el.addEventListener(
+  &quot;click&quot;,
+  function () &#123;
+    modifyText(&quot;four&quot;);
+  &#125;,
+  false,
+);
+
+/*4.带有箭头函数的监听器*/
+// 改变 t2 内容的函数
+function modifyText(new_text) &#123;
+  var t2 = document.getElementById(&quot;t2&quot;);
+  t2.firstChild.nodeValue = new_text;
+&#125;
+
+// 用箭头函数为 table 添加事件监听器
+const el = document.getElementById(&quot;outside&quot;);
+el.addEventListener(
+  &quot;click&quot;,
+  () =&gt; &#123;
+    modifyText(&quot;four&quot;);
+  &#125;,
+  false,
+);
+</code></pre>
+<h3 id="Node-appendChlid"><a href="#Node-appendChlid" class="headerlink" title="Node.appendChlid"></a>Node.appendChlid</h3><h4 id="概要-7"><a href="#概要-7" class="headerlink" title="概要"></a>概要</h4><p>​		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将一个节点附加到指定父节点的子节点列表末尾处。若该节点已经存在，则将其移动到新的位置，返回追加后的子节点。</p>
+<h4 id="语法-7"><a href="#语法-7" class="headerlink" title="语法"></a>语法</h4><pre><code class="js">element.appendChild(aChild)
+/*
+    aChild:要追加给父节点的节点。
+*/
+</code></pre>
+<h4 id="示例-8"><a href="#示例-8" class="headerlink" title="示例"></a>示例</h4><pre><code class="js">//创造一个新的段落元素p，然后将其添加到body的最尾部
+let p = document.createElement(&quot;p&quot;);
+document.body.appendChild(p);
+</code></pre>
+<h3 id="window-onload"><a href="#window-onload" class="headerlink" title="window.onload"></a>window.onload</h3><h4 id="概要-8"><a href="#概要-8" class="headerlink" title="概要"></a>概要</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>load</code>事件在整个页面及所有依赖资源都已完全加载时触发。</p>
+<h4 id="语法-8"><a href="#语法-8" class="headerlink" title="语法"></a>语法</h4><pre><code class="js">addEventListener(&quot;load&quot;, (event) =&gt; &#123;&#125;);
+
+onload = (event) =&gt; &#123;&#125;;
+</code></pre>
+<h4 id="示例-9"><a href="#示例-9" class="headerlink" title="示例"></a>示例</h4><pre><code class="js">windows.addEventListener(&quot;load&quot;, (event) =&gt;&#123;
+   console.log(&quot;page is fully loaded&quot;); 
+&#125;);
+
+windows.onload = (event) =&gt; &#123;
+   console.log(&quot;page is fully loaded&quot;); 
+&#125;;
+</code></pre>
+<h3 id="window-scrollTo"><a href="#window-scrollTo" class="headerlink" title="window.scrollTo"></a>window.scrollTo</h3><h4 id="概要-9"><a href="#概要-9" class="headerlink" title="概要"></a>概要</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;滚动到文档中的某个坐标。</p>
+<h4 id="语法-9"><a href="#语法-9" class="headerlink" title="语法"></a>语法</h4><pre><code class="js">window.scrollTo(x-coord, y-coord);
+window.scrollTo(options);
+/*
+    x-coord:文档的横轴坐标=left
+    y-coord:文档的纵轴坐标=top
+    options:包含三个属性的对象
+*/
+</code></pre>
+<h4 id="示例-10"><a href="#示例-10" class="headerlink" title="示例"></a>示例</h4><pre><code class="js">window.scrollTo(0, 1000);
+//设置滚动行为为平滑的滚动
+window.scrollTo(&#123;
+    top:1000,
+    behavior:&quot;smooth&quot;
+&#125;);
+</code></pre>
 
     </div>
     
     
     
     
-    
-            <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
-            <div id="comment">
-                <div id="waline-container">
-                </div>
-            </div>
     
     
     
@@ -504,23 +652,6 @@ function log(msg)&#123;
         
         
 
-
-    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
-    <script>
-        Waline.init({
-            el: '#waline-container',
-            serverURL: "https://sakbin.top/",
-            commentCount: "true",
-            pageview: "false",
-            emoji: "https://unpkg.com/@waline/emojis@1.0.1/weibo,https://unpkg.com/@waline/emojis@1.0.1/alus,https://unpkg.com/@waline/emojis@1.0.1/bilibili,https://unpkg.com/@waline/emojis@1.0.1/qq,https://unpkg.com/@waline/emojis@1.0.1/tieba,https://unpkg.com/@waline/emojis@1.0.1/tw-emoji".split(','),
-            meta: "nick,mail,link".split(','),
-            requiredMeta: "nick".split(','),
-            lang: "zh-CN",
-            wordLimit: parseInt("0"),
-            pageSize: "10",
-            login: "enable",
-        });
-    </script>
 
 
 
