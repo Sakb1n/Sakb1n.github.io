@@ -175,7 +175,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/CSS-%E5%AD%A6%E4%B9%A0/" style="color: #00bcd4">CSS,学习</a>
+                <a href="/tags/CSS-%E5%AD%A6%E4%B9%A0/" style="color: #03a9f4">CSS,学习</a>
             </span>
             
         </span>
@@ -547,6 +547,330 @@ url(big-star.png) center no-repeat,
 <p>可以为单个方向设置，如<code>overflow-y: scroll</code></p>
 <p>可以让浏览器决定是否显示滚动条：<code>overflow:auto</code></p>
 </blockquote>
+<h2 id="CSS的值和单位"><a href="#CSS的值和单位" class="headerlink" title="CSS的值和单位"></a>CSS的值和单位</h2><h3 id="数字、长度、百分比"><a href="#数字、长度、百分比" class="headerlink" title="数字、长度、百分比"></a>数字、长度、百分比</h3><h4 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>绝对长度</strong>不受页面限制。</p>
+<table>
+<thead>
+<tr>
+<th align="left">单位</th>
+<th align="left">名称</th>
+<th align="left">等价换算</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>cm</code></td>
+<td align="left">厘米</td>
+<td align="left">1cm &#x3D; <strong>37.8px</strong> &#x3D; 25.2&#x2F;64in</td>
+</tr>
+<tr>
+<td align="left"><code>mm</code></td>
+<td align="left">毫米</td>
+<td align="left">1mm &#x3D; <strong>1&#x2F;10</strong> of 1cm</td>
+</tr>
+<tr>
+<td align="left"><code>px</code></td>
+<td align="left">像素</td>
+<td align="left">1px &#x3D; <strong>1&#x2F;96</strong> of 1in</td>
+</tr>
+</tbody></table>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>相对长度</strong>受页面限制。</p>
+<table>
+<thead>
+<tr>
+<th align="left">单位</th>
+<th align="left">相对于</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>em</code></td>
+<td align="left">在 <code>font-size</code> 中使用是相对于父元素的字体大小，在其他属性中使用是相对于自身的字体大小，如 <code>width</code>。</td>
+</tr>
+</tbody></table>
+<h4 id="em和rem"><a href="#em和rem" class="headerlink" title="em和rem"></a>em和rem</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;em依据的是父元素的字体大小，而rem依据的是根元素的字体大小。</p>
+<h4 id="百分比"><a href="#百分比" class="headerlink" title="百分比"></a>百分比</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元素字体的百分比依据的是其父元素大小，<strong>但不是所有都接受百分比</strong>。</p>
+<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><ul>
+<li>关键字，如<code>antiquewhite</code>, <code>blueviolet</code>, <code>greenyellow</code>等</li>
+<li>十六进制RGB值，如<code>#02798b</code>,<code>#c55da1</code>等</li>
+<li>rgb()，如<code>rgb(2 121 139)</code>, <code>rgb(197 93 161)</code>等</li>
+<li>hsl(), 接受色调(0~360)、饱和度、亮度, 如<code>hsl(188, 97%, 28%)</code>,<code> hsl(321, 47%, 57%)</code> 等</li>
+</ul>
+<h3 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h3><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;position&gt;</code>表示一组2D坐标，用于定位一个元素，如同这样。</p>
+<pre><code class="css">background-position: left 80px;
+</code></pre>
+<h2 id="在CSS中调整大小"><a href="#在CSS中调整大小" class="headerlink" title="在CSS中调整大小"></a>在CSS中调整大小</h2><h3 id="固有尺寸"><a href="#固有尺寸" class="headerlink" title="固有尺寸"></a>固有尺寸</h3><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;固有尺寸由其包含的内容决定。</p>
+<p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图像的长和宽便是固有尺寸，当把图片放进网页时没有使用<code>img</code>或css进行尺寸设置，便会展示固有尺寸。</p>
+<h3 id="外部尺寸"><a href="#外部尺寸" class="headerlink" title="外部尺寸"></a>外部尺寸</h3><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当给元素指定具体尺寸时，这便成为外部尺寸，例如给div上height和width。</p>
+<h3 id="min-和max-尺寸"><a href="#min-和max-尺寸" class="headerlink" title="min-和max-尺寸"></a>min-和max-尺寸</h3><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以设置一个元素的最大尺寸或最小尺寸。</p>
+<pre><code class="css">.box &#123;
+  border: 5px solid darkblue;
+  min-height: 150px;
+  width: 200px;
+&#125;
+</code></pre>
+<h3 id="视口单位"><a href="#视口单位" class="headerlink" title="视口单位"></a>视口单位</h3><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1vh为视口高度的1%，1vw为视口宽度的1%。</p>
+<pre><code class="css">.box &#123;
+  border: 5px solid darkblue;
+  width: 10vw;
+  height: 30vh;
+  font-size: 10vh;
+&#125;
+</code></pre>
+<h2 id="图像、媒体和表单元素"><a href="#图像、媒体和表单元素" class="headerlink" title="图像、媒体和表单元素"></a>图像、媒体和表单元素</h2><h4 id="图像处理溢出问题"><a href="#图像处理溢出问题" class="headerlink" title="图像处理溢出问题"></a>图像处理溢出问题</h4><ol>
+<li>使用<code>max-width : 100%</code> 保证其一直不会宽度溢出</li>
+<li>使用<code>object-fit</code>属性，将图像调整到完全能够盖住一个盒子的大小。</li>
+</ol>
+<pre><code class="css">object-fit: cover;	//维持图像的原始比例，但多余部分会被裁剪
+object-fit: contain; //缩放到足以完整放到盒子里的大小，但不会完全盖住
+object-fit: fill;	//充满盒子但不会维持比例
+</code></pre>
+<h4 id="form元素"><a href="#form元素" class="headerlink" title="form元素"></a>form元素</h4><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;没学表单，直接搬MDN上的实例了。</p>
+<pre><code class="html">&lt;form&gt;
+  &lt;div&gt;&lt;label for=&quot;name&quot;&gt;Name&lt;/label&gt;
+  &lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+  &lt;input type=&quot;email&quot; id=&quot;email&quot;&gt;&lt;/div&gt;
+
+  &lt;div class=&quot;buttons&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;&lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+<pre><code class="css">/*CSS设置*/
+
+input[type=&quot;text&quot;],
+input[type=&quot;email&quot;] &#123;
+  border: 2px solid #000;
+  margin: 0 0 1em 0;
+  padding: 10px;
+  width: 100%;
+&#125;
+
+input[type=&quot;submit&quot;] &#123;
+  border: 3px solid #333;
+  background-color: #999;
+  border-radius: 5px;
+  padding: 10px 2em;
+  font-weight: bold;
+  color: #fff;
+&#125;
+
+input[type=&quot;submit&quot;]:hover, input[type=&quot;submit&quot;]:focus &#123;
+  background-color: #333;
+&#125;
+</code></pre>
+<h2 id="样式化表格"><a href="#样式化表格" class="headerlink" title="样式化表格"></a>样式化表格</h2><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这一节的代码写进文件好吧。</p>
+<h2 id="调试CSS与组织CSS"><a href="#调试CSS与组织CSS" class="headerlink" title="调试CSS与组织CSS"></a>调试CSS与组织CSS</h2><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工具调试，没有多写的必要，引用他的一句话：</p>
+<blockquote>
+<p>任何代码问题都可能令人沮丧，尤其是 CSS 问题，因为你通常无法获得错误消息用于网络搜索来帮助你找到解决方案。如果你感到沮丧，请暂时离开该问题一会儿—散步，喝一杯，与同事聊天，或者做一些其他事情。有时，当你停止思考问题时，解决方案就会神奇地出现，即使没有出现，在感到清爽的时候解决起问题来要容易很多。</p>
+</blockquote>
+<h1 id="样式化文本"><a href="#样式化文本" class="headerlink" title="样式化文本"></a>样式化文本</h1><h2 id="基本文本和字体样式"><a href="#基本文本和字体样式" class="headerlink" title="基本文本和字体样式"></a>基本文本和字体样式</h2><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文本内容像内联元素，除非到达了行的尽头，否则不会换行，强制换行使用<code>&lt;br&gt;</code>元素。</p>
+<blockquote>
+<p>包含在元素中的文本是作为一个单一的实体，不能将文字其中一部分选中或添加样式，必须适用元素来包装它们，用span或者strong，或者使用伪元素，像::first(选中元素文本的第一个字母)，::first-line(选中元素文本的第一行)，::selection(当前光标双击选中的文本)</p>
+</blockquote>
+<h3 id="字体属性"><a href="#字体属性" class="headerlink" title="字体属性"></a>字体属性</h3><ul>
+<li><p>color:接受任何合法的CSS单位</p>
+</li>
+<li><p>font-family:设定字体，使用字体栈可以使用多种字体选择</p>
+<pre><code class="css">p &#123;
+  font-family: &quot;Trebuchet MS&quot;, Verdana, sans-serif;
+&#125;
+</code></pre>
+</li>
+<li><p>font-size:设置大小,font-size属性是由该元素的父元素继承的，浏览器的font-size默认为16px</p>
+</li>
+<li><p>font-style:打开或关闭文本italic</p>
+<ul>
+<li><code>normal</code>:不打开斜体</li>
+<li><code>italic</code>:若该字体的斜体版本可用，打开斜体，否则利用oblique状态来模拟italics</li>
+<li><code>oblique</code>:使用普通文本的斜体</li>
+</ul>
+</li>
+<li><p>font-weight:文字粗细</p>
+<ul>
+<li><code>normal</code>, <code>bold</code>: 普通或者<strong>加粗</strong></li>
+<li><code>lighter</code>, <code>bolder</code>: 设置为比其父元素更细或更粗一步，值在100~900之间</li>
+</ul>
+</li>
+<li><p>text-transform:字体转换</p>
+<ul>
+<li><code>none</code>:防止任何转型</li>
+<li><code>uppercase</code>:转为大写</li>
+<li><code>lowercase</code>:转为小写</li>
+<li><code>capitalize</code>:转单词首字母为大写</li>
+<li><code>full-width</code>:转为全角</li>
+</ul>
+</li>
+<li><p>text-decoration:设置文本装饰</p>
+<ul>
+<li><code>none</code>:取消已存在的文本装饰</li>
+<li><code>overline</code>:上划线</li>
+<li><code>underline</code>:下划线</li>
+<li><code>line-through</code>:穿过文本的线</li>
+</ul>
+</li>
+</ul>
+<h4 id="文字阴影"><a href="#文字阴影" class="headerlink" title="文字阴影"></a>文字阴影</h4><pre><code class="css">text-shadow: 4px 4px 5px red;
+/*
+    1.阴影与原始文本的水平偏移(必须)
+    2.阴影与原始文本的垂直偏移(必须)
+    3.模糊半径，默认为0
+    4.阴影基础颜色，默认黑色
+*/
+</code></pre>
+<h3 id="文本布局"><a href="#文本布局" class="headerlink" title="文本布局"></a>文本布局</h3><ul>
+<li>text-align:控制对齐模式<ul>
+<li><code>left</code>: 左对齐文本。</li>
+<li><code>right</code>: 右对齐文本。</li>
+<li><code>center</code>: 居中文字</li>
+<li><code>justify</code>: 使文本展开，改变单词之间的差距，使所有文本行的宽度相同。</li>
+</ul>
+</li>
+<li>line-height:设置行高</li>
+</ul>
+<pre><code class="css">line-height: 1.5;
+</code></pre>
+<ul>
+<li>letter-spacing:字母与字母的间距</li>
+<li>word-spacing:单词与单词的间距</li>
+</ul>
+<h2 id="为列表添加样式"><a href="#为列表添加样式" class="headerlink" title="为列表添加样式"></a>为列表添加样式</h2><h3 id="列表属性"><a href="#列表属性" class="headerlink" title="列表属性"></a>列表属性</h3><ul>
+<li>list-style-type:设置列表符号的类型</li>
+</ul>
+<pre><code class="css">ol &#123;
+/*设置大号罗马数字*/
+  list-style-type: upper-roman;
+&#125;
+</code></pre>
+<p>效果：<img src="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Styling_text/Styling_lists/outer-bullets.png"></p>
+<ul>
+<li><p>list-style-position:设置符号是出现在列表项内还是出现在其外，默认为outside。</p>
+</li>
+<li><p>list-style-image:对列表符号使用自定义图片，但有局限，最好使用background系列属性。</p>
+</li>
+</ul>
+<pre><code class="css">ul &#123;
+  list-style-image: url(star.svg);
+&#125;
+
+/*修改*/
+ul &#123;
+  padding-left: 2rem;
+  list-style-type: none;
+&#125;
+
+ul li &#123;
+  padding-left: 2rem;
+  background-image: url(star.svg);
+  background-position: 0 0;	/*将出现在每个列表项的最左上侧*/
+  background-size: 1.6rem 1.6rem;
+  background-repeat: no-repeat;
+&#125;
+</code></pre>
+<h3 id="管理列表计数"><a href="#管理列表计数" class="headerlink" title="管理列表计数"></a>管理列表计数</h3><pre><code class="html">/*将从4开始计数*/
+&lt;ol start=&quot;4&quot;&gt;
+  &lt;li&gt;a&lt;/li&gt;
+  &lt;li&gt;b&lt;/li&gt;
+  &lt;li&gt;c&lt;/li&gt;
+  &lt;li&gt;d&lt;/li&gt;
+&lt;/ol&gt;
+
+/*将从4反向计数*/
+&lt;ol start=&quot;4&quot; reversed&gt;
+  &lt;li&gt;a&lt;/li&gt;
+  &lt;li&gt;b&lt;/li&gt;
+  &lt;li&gt;c&lt;/li&gt;
+  &lt;li&gt;d&lt;/li&gt;
+&lt;/ol&gt;
+
+/*设置指定值*/
+&lt;ol&gt;
+  &lt;li value=&quot;2&quot;&gt;a&lt;/li&gt;
+  &lt;li value=&quot;4&quot;&gt;b&lt;/li&gt;
+  &lt;li value=&quot;6&quot;&gt;c&lt;/li&gt;
+  &lt;li value=&quot;8&quot;&gt;d&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<h2 id="样式化链接"><a href="#样式化链接" class="headerlink" title="样式化链接"></a>样式化链接</h2><h3 id="链接状态"><a href="#链接状态" class="headerlink" title="链接状态"></a>链接状态</h3><p>​	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;链接的状态可以用对应的伪类来实现。</p>
+<pre><code class="css">/*按照该顺序写，否则有些伪类无法应用*/
+a &#123;
+&#125;
+
+a:link &#123;
+&#125;
+
+a:visited &#123;
+&#125;
+
+a:focus &#123;
+&#125;
+
+a:hover &#123;
+&#125;
+
+a:active &#123;
+&#125;
+</code></pre>
+<h3 id="在链接中包含图标"><a href="#在链接中包含图标" class="headerlink" title="在链接中包含图标"></a>在链接中包含图标</h3><pre><code class="html">check out &lt;a href=&quot;http://www.extremescience.com/weather.htm&quot;
+    &gt;weather on Extreme Science&lt;/a&gt;
+</code></pre>
+<pre><code class="css">/*选中拥有href属性，且属性包含”http“的a元素*/
+a[href*=&quot;http&quot;] &#123;
+  background: url(&quot;external-link-52.png&quot;) no-repeat 100% 0;
+  background-size: 16px 16px;
+  padding-right: 19px;
+&#125;
+</code></pre>
+<h3 id="样式化链接为按钮"><a href="#样式化链接为按钮" class="headerlink" title="样式化链接为按钮"></a>样式化链接为按钮</h3><pre><code class="html">&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Pizza&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Music&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Wombats&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Finland&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<pre><code class="css">body,
+html &#123;
+  margin: 0;
+  font-family: sans-serif;
+&#125;
+
+ul &#123;
+  padding: 0;
+  width: 100%;
+&#125;
+
+li &#123;
+  /*设置为行内元素*/
+  display: inline;
+&#125;
+
+a &#123;
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  width: 19.5%;
+  margin-right: 0.625%;
+  text-align: center;
+  line-height: 3;
+  color: black;
+&#125;
+
+li:last-child a &#123;
+  margin-right: 0;
+&#125;
+
+a:link,
+a:visited,
+a:focus &#123;
+  background: yellow;
+&#125;
+
+a:hover &#123;
+  background: orange;
+&#125;
+
+a:active &#123;
+  background: red;
+  color: white;
+&#125;
+</code></pre>
 
     </div>
     
