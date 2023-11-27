@@ -1,0 +1,762 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8" />
+        <title>Recollection--DFS | Bin&#39;s blog</title>
+        <meta name="author" content="Binbin" />
+        <meta name="description" content="小彬彬的博客" />
+        <meta name="keywords" content="hexo,node,blog" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/pic.jpg" />
+        <script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>BIN&#39;S BLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;BIN&#39;S BLOG</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+                <div class="article">
+    <div>
+        <h1>Recollection--DFS</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/11/25
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E7%AE%97%E6%B3%95/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                算法
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E7%AE%97%E6%B3%95-%E6%9D%82%E8%B0%88-%E5%AD%A6%E4%B9%A0/" style="color: #ffa2c4">算法,杂谈,学习</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <blockquote>
+<p> &nbsp;&nbsp;&nbsp;&nbsp;最近在学javaweb, 把自己博客给忘得差不多了，于是水篇文章证明我还活着()</p>
+</blockquote>
+<h2 id="DFS-深度优先搜索"><a href="#DFS-深度优先搜索" class="headerlink" title="DFS(深度优先搜索)"></a>DFS(深度优先搜索)</h2><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;深度优先搜索 (Depth-first-search) 是一种图的算法, 以<strong>深度</strong>作为方向进行搜索,找到所需要的答案, 直到所有方案搜索完为止，其本质依然是暴力。 </p>
+<blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;走入迷宫, 向一条路径一直走下去直到走到死路为止, 再回返到最近的一个路口走另一条没有走过的路，依次类推…<br>&nbsp;&nbsp;&nbsp;&nbsp;实现dfs的核心是<strong>标记</strong>与<strong>回溯</strong>。 </p>
+</blockquote>
+<span id="more"></span>
+<h2 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h2><pre><code class="c"> void dfs(int x)&#123;
+    if(满足停止搜索条件)&#123;
+        ...        //处理
+        return;
+    &#125;
+    for (int i = 0; i &lt; length; i++)&#123;
+        if (没有搜过该点)&#123;
+            vis[x] = 1; //标记搜过
+            dfs(x + 1); //递归
+            vis[x] = 0; //取消标记(回溯)
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>dfs变化多样,不一定就要照着模版写。</p>
+<h2 id="题目尝试"><a href="#题目尝试" class="headerlink" title="题目尝试"></a>题目尝试</h2><blockquote>
+<p>C语言新手, 请多多指教。</p>
+</blockquote>
+<h3 id="CF6A-Triangle"><a href="#CF6A-Triangle" class="headerlink" title="CF6A Triangle"></a>CF6A Triangle</h3><img src="/2023/11/25/Recollection-DFS/CF6A.png">
+&nbsp;&nbsp;&nbsp;&nbsp;这是一道入门题, 数据少也不卡时间, 可以直接通过暴力枚举得到结果简单方便, 但还是用dfs来练练手()  
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;我们可以先将所有木棍从小到大排序,当我们任意取出3根木棍时，这3根木棍的长度一定是有序的,判断三角形时只需要将1、2号木棍与3号木棍长度进行比较即可。  </p>
+<p><em>AC代码:</em></p>
+<pre><code class="c">#include&lt;stdio.h&gt;
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+//直接调用C++的sort排序，懒得写排序了。 
+//arr进行数据读入，arr1放入需判断的三根木棍, con代表状态。 
+int arr[4], arr1[4], i, con = 0;
+void dfs(int cur, int w)//cur代表已读入木棍数，该值等于3则开始判断三角形情况。 
+&#123;
+    if (cur == 3)
+    &#123;
+        //大于为三角形，等于为退化三角形 
+        if(arr1[0] + arr1[1] &gt; arr1[2])
+        &#123;
+            con = 1;
+        &#125;
+        else if (con == 0 &amp;&amp; arr1[0] + arr1[1] == arr1[2])	//为什么要判断con==0呢 
+        &#123;
+            con = 2;
+        &#125;
+    &#125;
+    else
+    &#123;
+/*
+    w表示当前搜索到的位置
+    我们从头开始理,最开始主程序调用dfs时:
+    1.w = 0, cur = 0, 会进入到这里，j = 0开始循环, arr1放入0号元素, 递归;
+    2.w = 1, cur = 1, 依然进入到这里, j = 1开始循环, arr1放入1号元素, 递归; 
+    3.w = 2, cur = 2, 依然进入到这里, j = 2开始循环, arr1放入2号元素, 递归; 
+    4.cur = 3, 判断条件，这里结束后将返回到第3步;
+    5.第3步此时位于j = 2的循环中，dfs结束后，j++后变为3, arr1将不再放入2号元素而是放入3号元素，递归;
+    6.cur = 3, 判断条件，这里结束后将返回到第3步;
+    7.第3步到达循环末尾，再回到第2步,第2步j++后变为2,取3号元素，以此类推...
+    8.你应该能理解为什么要写循环了。 
+*/
+        for (int j = w; j &lt; 4; j++)
+        &#123;
+            arr1[cur] = arr[j];		//放入arr1数组 
+            dfs(cur + 1, j + 1);	//当前数量+1并递归搜索 
+        &#125;
+    &#125;
+&#125;
+int main(void)
+&#123;
+    for (i = 0; i &lt; 4; i++)
+    &#123;
+        scanf(&quot;%d&quot;, &amp;arr[i]);
+    &#125;
+    sort(arr, arr + 4);	//快排 
+    dfs(0,0);	//dfs开始搜索 
+    if (con == 1)
+    &#123;
+        printf(&quot;TRIANGLE&quot;);
+    &#125;
+    else if (con == 0)
+    &#123;
+        printf(&quot;IMPOSSIBLE&quot;);
+    &#125;
+    else
+    &#123;
+        printf(&quot;SEGMENT&quot;);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="CF629A-Far-Relative’s-Birthday-Cake"><a href="#CF629A-Far-Relative’s-Birthday-Cake" class="headerlink" title="CF629A Far Relative’s Birthday Cake"></a>CF629A Far Relative’s Birthday Cake</h3><img src="/2023/11/25/Recollection-DFS/CF629A.png">
+&nbsp;&nbsp;&nbsp;&nbsp;解释解释到底说了什么：只要在一行或一列上找到一对CC,就得到一点幸福指数，求总幸福指数。
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;我们使用dfs进行搜索时带上一个数组arr1,用它来标记是否搜索过该元素,递归完成后取消标记,这就是标记与回溯。</p>
+<p><em>AC代码:</em></p>
+<pre><code class="c">#include&lt;stdio.h&gt;
+
+const int MAX = 110;
+int n, arr[MAX][MAX] = &#123;0&#125;, arr1[MAX][MAX], count = 0, i, j;
+
+void dfs(int a, int b)&#123;
+    //判断条件:x轴上的b小于n或y轴上的a小于n
+    if ((a == i &amp;&amp; b &lt; n) || (b == j &amp;&amp; a &lt; n))
+    &#123;
+        if (arr[a][b] == 1 &amp;&amp; arr1[a][b] != 1)
+        &#123;
+            //标记解 
+            count++;
+        &#125;
+        //往下和右递归调用 
+        dfs(a+1, b);
+        dfs(a,b+1);
+    &#125;
+&#125;
+int main(void)
+&#123;
+    //读入,将str数组转化为arr数组
+    scanf(&quot;%d\n&quot;, &amp;n);
+    for (i = 0; i &lt; n; i++)
+    &#123;
+        for (j = 0; j &lt; n; j++)
+        &#123;
+            char temp;
+            scanf(&quot;%c&quot;, &amp;temp);
+            if (temp == &#39;C&#39;)
+            &#123;
+                arr[i][j] = 1;
+            &#125;
+            else if (temp == &#39;.&#39;)&#123;
+                arr[i][j] = 0;
+            &#125;
+        &#125;
+        if (i != n - 1)
+        &#123;
+            scanf(&quot;\n&quot;);
+        &#125;
+    &#125;
+    //只是把dfs的循环拿出来用了，原理一致。
+    for (i = 0; i &lt; n; i++)
+    &#123;
+        for (j = 0; j &lt; n; j++)
+        &#123;
+            if (arr[i][j] == 1)
+            &#123;
+            //标记与回溯
+            arr1[i][j] = 1;
+            dfs(i, j);
+            arr1[i][j] = 0;	
+            &#125;		
+        &#125;
+    &#125;
+    printf(&quot;%d&quot;, count);
+&#125;
+</code></pre>
+<h3 id="P1706-全排列问题"><a href="#P1706-全排列问题" class="headerlink" title="P1706 全排列问题"></a>P1706 全排列问题</h3><img src="/2023/11/25/Recollection-DFS/P1706.png">
+&nbsp;&nbsp;&nbsp;&nbsp;经典题,与上题思想一致,使用dfs深度搜索,用另一个数组去标记是否搜索过该数。
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;与第一道题不同, 我们所搜索的元素只可能在当前位置之后, 所以直接从当前位置循环, 而此题的排列没有任何顺序可言,我们从数组中遍历没有被标记的元素来作为下一个应该排的位置,所以区别还是挺大的()</p>
+<p><em>AC代码:</em></p>
+<pre><code class="c">#include&lt;stdio.h&gt;
+
+int a[10], v[10], n;
+void dfs(int t)&#123;
+    if (t == n + 1)
+    &#123;
+        for (int i = 1; i &lt;= n; i++)
+        &#123;
+            printf(&quot;    %d&quot;, a[i]);
+        &#125;
+        printf(&quot;\n&quot;);
+        return;
+    &#125;
+    for (int i = 1; i &lt;= n; i++)
+    &#123;
+        if(v[i] != 1)
+        &#123;
+            v[i] = 1;
+            a[t] = i;
+            dfs(t + 1);
+            v[i] = 0;
+        &#125;
+    &#125;
+&#125;
+int main(void)
+&#123;
+    scanf(&quot;%d&quot;, &amp;n);
+    dfs(1);
+&#125;
+</code></pre>
+<h3 id="P1451-求细胞数量"><a href="#P1451-求细胞数量" class="headerlink" title="P1451 求细胞数量"></a>P1451 求细胞数量</h3><img src="/2023/11/25/Recollection-DFS/P1451.png">
+&nbsp;&nbsp;&nbsp;&nbsp;连通块问题,只要连通的区域统统都算1个,直接dfs,将要搜索的设为1,dfs搜索到的区域统统变为0,注意递归时是朝东南西北四个方向进行搜索, 当触碰到边界时停止搜索。
+
+<p><em>AC代码:</em></p>
+<pre><code class="c">#include&lt;stdio.h&gt;
+const int MAX = 110;
+int m, n;
+int arr[MAX][MAX];
+int count = 0;
+//方向数组,分别对应东南西北。
+int dx[4] = &#123;0,0,1,-1&#125;; 
+int dy[4] = &#123;1,-1,0,0&#125;;
+void dfs(int a, int b)
+&#123;
+    arr[a][b] = 0;
+    for (int i = 0; i &lt; 4; i++)
+    &#123;
+        a += dx[i];
+        b += dy[i];
+        //判断搜索条件
+        if (a &lt;= m &amp;&amp; a &gt;= 1 &amp;&amp; b &lt;= n &amp;&amp; b &gt;= 1 &amp;&amp; arr[a][b] == 1)
+        &#123;
+            dfs(a, b);
+        &#125;
+        a -= dx[i];
+        b -= dy[i];
+    &#125;
+&#125;
+int main(void)
+&#123;
+    scanf(&quot;%d%d\n&quot;,&amp;m,&amp;n);
+    char temp;
+    for (int i = 1; i &lt;= m; i++)
+    &#123;
+        for (int j = 1; j &lt;= n; j++)
+        &#123;
+            scanf(&quot;%c&quot;, &amp;temp);
+            if (temp &lt;= &#39;9&#39; &amp;&amp; temp &gt; &#39;0&#39;)
+            &#123;
+                arr[i][j] = 1;
+            &#125;
+            else
+            &#123;
+                arr[i][j] = 0;
+            &#125;
+        &#125;	
+        if (i != m)
+        &#123;
+            scanf(&quot;\n&quot;);
+        &#125;
+    &#125;
+    for (int i = 1; i &lt;= m; i++)
+    &#123;
+        for (int j = 1; j &lt;= n; j++)
+        &#123;
+            if (arr[i][j] == 1)
+            &#123;
+                dfs(i, j);
+                //得到其一解
+                ++count;
+            &#125;
+        &#125;
+    &#125;
+    printf(&quot;%d&quot;, count);
+&#125;
+</code></pre>
+<h3 id="P1506-拯救oibh总部"><a href="#P1506-拯救oibh总部" class="headerlink" title="P1506 拯救oibh总部"></a>P1506 拯救oibh总部</h3><img src="/2023/11/25/Recollection-DFS/P1506.png">
+&nbsp;&nbsp;&nbsp;&nbsp;如果你依然想套用上一题并信心满满的提交时,你会收到全WA的惊喜(我也一样233)  
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;其实我们可以在最外围搜一圈,凡是被洪水淹没的地段都设为1,最后循环查找没被淹没的地方(值为0的地方)就行了()</p>
+<p><em>AC代码:</em></p>
+<pre><code class="c">#include&lt;stdio.h&gt;
+const int MAX = 510;
+int arr[MAX][MAX], m, n, count = 0;
+//方向数组
+int ax[4] = &#123;0, 0, 1, -1&#125;;
+int ay[4] = &#123;1, -1, 0, 0&#125;;
+void dfs(int x, int y)
+&#123;
+    int x1, y1;
+    arr[x][y] = 1;
+    for (int i = 0; i &lt; 4; i++)
+    &#123;
+        x1 = x + ax[i];
+        y1 = y + ay[i];
+        if (x1 &gt;= 0 &amp;&amp; x1 &lt; n &amp;&amp; y1 &gt;=0 &amp;&amp; y1 &lt; m &amp;&amp; arr[x1][y1] == 0)
+        &#123;
+            dfs(x1, y1);
+        &#125;
+    &#125;
+&#125;
+int main(void)
+&#123;
+    //读入
+    scanf(&quot;%d%d\n&quot;, &amp;n, &amp;m);
+    for (int i = 0; i &lt; n; i++)
+    &#123;
+        for (int j = 0; j &lt; m; j++)
+        &#123;
+            char temp;
+            scanf(&quot;%c&quot;, &amp;temp);
+            if (temp == &#39;0&#39;)
+            &#123;
+                arr[i][j] = 0;
+            &#125;
+            else&#123;
+                arr[i][j] = 1;
+            &#125;
+        &#125;
+        if (i != n - 1)
+        &#123;
+            scanf(&quot;\n&quot;);
+        &#125;
+    &#125;
+    //在最外面一圈进行搜索
+    for (int i = 0; i &lt; m; i++)
+    &#123;
+        if (arr[0][i] == 0)
+        &#123;
+            dfs(0, i);
+        &#125;
+        if (arr[n - 1][i] == 0)
+        &#123;
+            dfs(n - 1, i);
+        &#125;
+    &#125;
+    for (int i = 0; i &lt; n; i++)
+    &#123;
+        if (arr[i][0] == 0)
+        &#123;
+            dfs(i, 0);
+        &#125;
+        if (arr[i][m - 1] == 0)
+        &#123;
+            dfs(i, m - 1);
+        &#125;
+    &#125;
+    //统计没有被淹没的地段
+    for (int i = 0; i &lt; n; i++)
+    &#123;
+        for (int j = 0; j &lt; m; j++)
+        &#123;
+            if (arr[i][j] == 0)
+            &#123;
+                count++;
+            &#125;
+        &#125;
+    &#125;
+    printf(&quot;%d&quot;, count);
+&#125;
+</code></pre>
+<h3 id="P1036-NOIP2002-普及组-选数"><a href="#P1036-NOIP2002-普及组-选数" class="headerlink" title="P1036 [NOIP2002 普及组] 选数"></a>P1036 [NOIP2002 普及组] 选数</h3><img src="/2023/11/25/Recollection-DFS/P1036.png">
+&nbsp;&nbsp;&nbsp;&nbsp;此题跟其他dfs题如出一辙,可以说照着模版写就是了,唯一可能卡的点是判断是否为质数:  
+
+<pre><code class="c">int prime(int sum)
+&#123;
+    for (int i = 2; i * i &lt;= sum; i++)
+    &#123;
+        if (sum % i == 0)
+        &#123;
+            return 0;
+        &#125;
+    &#125;
+    return 1;
+&#125;
+</code></pre>
+<p>dfs部分不作展示。</p>
+<h3 id="USACO10OCT-Lake-Counting-S"><a href="#USACO10OCT-Lake-Counting-S" class="headerlink" title="[USACO10OCT] Lake Counting S"></a>[USACO10OCT] Lake Counting S</h3><img src="/2023/11/25/Recollection-DFS/P1596.png">  
+&nbsp;&nbsp;&nbsp;&nbsp;也是一般dfs思路,唯一不同的地方在于为八个方向,只需要将方向数组修改就行了。
+
+<pre><code class="c">    //东、东南、南、西南、西、西北、北、东北
+    int ax[9] = &#123;0, 0, 1, 1, 1, 0, -1, -1, -1&#125;;
+    int ay[9] = &#123;0, 1, 1, 0, -1, -1, -1, 0, 1&#125;;
+</code></pre>
+<p>dfs部分不作展示。 </p>
+<h3 id="USACO1-5-八皇后-Checker-Challenge"><a href="#USACO1-5-八皇后-Checker-Challenge" class="headerlink" title="[USACO1.5] 八皇后 Checker Challenge"></a>[USACO1.5] 八皇后 Checker Challenge</h3><img src="/2023/11/25/Recollection-DFS/P1219.png">
+&nbsp;&nbsp;&nbsp;&nbsp;喜欢我八皇后吗,说实话,真的没一点思路。
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;在这个棋盘上,行列对角线上只能存在一个棋子,我写了点。<br><img src="/2023/11/25/Recollection-DFS/photo.jpg"></p>
+<p><em>AC代码:</em></p>
+<pre><code class="c">#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+//分别对应行,主对角线,副对角线,答案数组。
+int col[14], d1[30], d2[50], ans[14];
+int n, w = 0;
+
+void dfs(int x)
+&#123;
+    if (x &gt; n)
+    &#123;
+        //题只要求输出前3种情况,所以w&lt;3,随后只让解的个数增加
+        if (w &lt; 3)
+        &#123;
+            for (int i = 1; i &lt;= n; i++)
+            &#123;
+                printf(&quot;%d &quot;, ans[i]);
+            &#125;
+            printf(&quot;\n&quot;);
+        &#125;
+        w++;
+    &#125;
+    else
+    &#123;
+        for (int k = 1; k &lt;= n; k++)
+        &#123;
+            //平行的主对角线满足该特征:它们的行与列之差固定,但可能为负值,故再加上一个n。
+            int z = x + k - 1;
+            //平行的副对角线满足该特征:它们的行与列之和固定。
+            int t = x - k + n;
+            if (!col[k] &amp;&amp; !d1[z] &amp;&amp; !d2[t])
+            &#123;
+                ans[x] = k;col[k] = 1;d1[z] = 1;d2[t] = 1;
+                dfs(x + 1);
+                col[k] = 0;d1[z] = 0;d2[t] = 0;
+            &#125;
+        &#125;	
+    &#125;
+&#125;
+int main(void)
+&#123;
+    scanf(&quot;%d&quot;, &amp;n);
+    dfs(1);
+    printf(&quot;%d&quot;, w);
+&#125;
+</code></pre>
+<h3 id="P1189-SEARCH"><a href="#P1189-SEARCH" class="headerlink" title="P1189 SEARCH"></a>P1189 SEARCH</h3><img src="/2023/11/25/Recollection-DFS/P1189.png">
+&nbsp;&nbsp;&nbsp;&nbsp;这个题的意思是给你一个初始地与N个方向,N个方向都要按顺序使用,寻找到它最终的落脚点,这题DFS和BFS都可以用
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;参考：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/dingcx-juruo/solution-p1189">dingcx:P1189 SEARCH</a><br>&nbsp;&nbsp;&nbsp;&nbsp;考虑直接使用dfs会超时,我们选择优化,因为在dfs搜索过程中会出现多条路都通向一个节点的情况,我们在标记数组中加入方向长度减少这种情况,就进行优化,详细请读一读上面这篇文章~</p>
+<p><em>AC代码:</em></p>
+<pre><code class="c">#include&lt;stdio.h&gt;
+const int MAX = 55;
+const int MAXN = 1010;
+int m, n, arr[MAX][MAX], arr1[MAXN][MAX][MAX], stx, sty, N, dir[MAXN];
+int f[5][2] = &#123;0,0,0,1,1,0,0,-1,-1,0&#125;;
+
+void dfs(int len, int x, int y)
+&#123;
+    if (arr1[len][x][y] == 1)
+    &#123;
+        return;
+    &#125;
+    else
+    &#123;
+        int x1 = x, y1 = y;
+        arr1[len][x][y] = 1;
+        if (len == 0)
+        &#123;
+            return;
+        &#125;
+        while (1)
+        &#123;
+            x1 += f[dir[len]][0];
+            y1 += f[dir[len]][1];
+            if (arr[x1][y1] == 1 || x1 &lt; 0 || x1 &gt;= m || y1 &lt; 0 || y1 &gt;= n)
+            &#123;
+                break;
+            &#125;
+            dfs(len - 1, x1, y1);
+        &#125;
+    &#125;
+&#125;
+int main(void)
+&#123;
+    scanf(&quot;%d%d\n&quot;, &amp;m, &amp;n);
+    for (int i = 0; i &lt; m; i++)
+    &#123;
+        for (int j = 0; j &lt; n; j++)
+        &#123;
+            char temp;
+            scanf(&quot;%c&quot;, &amp;temp);
+            if (temp == &#39;X&#39;)
+            &#123;
+                arr[i][j] = 1;
+            &#125;
+            else if (temp == &#39;.&#39;)
+            &#123;
+                arr[i][j] = 0;
+            &#125;
+            else&#123;
+                stx = i;
+                sty = j;
+                arr[i][j] = 0;
+            &#125;
+        &#125;
+        if (i != m - 1)
+        &#123;
+            scanf(&quot;\n&quot;);
+        &#125;
+    &#125;
+    scanf(&quot;%d\n&quot;, &amp;N);
+    for (int i = 1; i &lt;= N; i++)
+    &#123;
+        char str[10];
+        scanf(&quot;%s&quot;, str);
+        if (str[0] == &#39;E&#39;)
+        &#123;
+            dir[N + 1 - i] = 1;
+        &#125;
+        else if (str[0] == &#39;S&#39;)
+        &#123;
+            dir[N + 1 - i] = 2;
+        &#125;
+        else if (str[0] == &#39;W&#39;)
+        &#123;
+            dir[N + 1 - i] = 3;
+        &#125;
+        else if (str[0] == &#39;N&#39;)
+        &#123;
+            dir[N + 1 - i] = 4;
+        &#125;
+    &#125;
+    dfs(N, stx, sty);
+    for (int i = 0; i &lt; m; i++)
+    &#123;
+        for (int j = 0; j &lt; n; j++)
+        &#123;
+            if (arr1[0][i][j] == 1)
+            &#123;
+                printf(&quot;*&quot;);
+            &#125;
+            else if (arr[i][j] == 0)
+            &#123;
+                printf(&quot;.&quot;);
+            &#125;
+            else&#123;
+                printf(&quot;X&quot;);
+            &#125;
+        &#125;   
+        printf(&quot;\n&quot;);
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>春空舞う花びらは，<br>過ぎ去った奇跡じゃなく，<br>巡った季節を超えても輝いて，<br>二人の未来を彩るよ。</p>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2023 - 2023 Bin&#39;s blog
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Binbin
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>
