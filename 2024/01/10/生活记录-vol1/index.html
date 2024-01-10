@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8" />
+        <title>生活记录-vol1 | Bin&#39;s blog</title>
+        <meta name="author" content="Binbin" />
+        <meta name="description" content="小彬彬的博客" />
+        <meta name="keywords" content="hexo,node,blog" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/pic.jpg" />
+        <script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+<script src="https://cdn.staticfile.org/gitalk/1.8.0/gitalk.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.8.0/gitalk.min.css" />
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>BIN&#39;S BLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;BIN&#39;S BLOG</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+                <div class="article">
+    <div>
+        <h1>生活记录-vol1</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/1/10
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                生活
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E7%94%9F%E6%B4%BB/" style="color: #ffa2c4">生活</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>本篇图片约40张, 打开可能非常缓慢, 请考虑挂梯子!  </p>
+<p>学期即将结束, 回忆一下整个大二上那些存在的温柔的记忆吧, 或许都是些零零散散的碎片, 但我还是想发出来好好再看看. ꉂ(ˊᗜˋ*)  </p>
+<span id="more"></span>
+
+<h3 id="2023-8-31"><a href="#2023-8-31" class="headerlink" title="2023.8.31"></a>2023.8.31</h3><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo1.jpg">
+终于又开始了新的学期生活了, 校园的故事将再次开启啦啦啦.
+<br>
+<br>
+<br>
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo2.png">
+好吧, 这个学期注定不太好过, 作为转专业学生的我, 还要将大一上没有学习的课程全部补修过来, 数据结构、网页交互式、Web应用真让人头痛呐wwwwww  
+<br>
+<br>
+
+
+<h3 id="2023-9"><a href="#2023-9" class="headerlink" title="2023.9"></a>2023.9</h3><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo3.jpg">
+跟室友一起去了锦里和武侯祠看看, 但景区里的人实在太太太太多了, 我反而还有一点不习惯.  
+<br>
+<br>
+<br>
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo4.jpg">
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo5.jpg">
+我们三人去主机店玩了玩双人成行, 双人成行果然还是要跟别人一起玩才好玩. 顺便我也体验了下美末()  
+<br>
+<br>
+<br>
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo6.jpg">
+FOREST 通关, 但这个游戏真是经常能吓到我, 下次只要带惊悚词条的游戏我都要慎重考虑一下哼.
+<br>
+<br>
+<br>
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo7.jpg">
+开了一个mc原版服务器与朋友玩玩, 但就用的阿里云免费白嫖的服务器(), 中间还有神秘人进来把我服炸了(差点remake), 好在最后还是顺利结束了.
+<br>
+<br>
+<br>
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo8.jpg">
+上课路上遇见的小猫猫, 挺可爱的喵喵, 但我还是不敢去摸捏
+<br>
+<br>
+<br>
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo9.jpg">
+国庆将至, 该带她回去见家长吗
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo10.jpg">
+犹豫了很久还是没带回去, 我真害怕你一去不复返啊啊啊啊啊！(指被我妹抱走) 
+<br>
+<br>
+
+<h3 id="2023-10"><a href="#2023-10" class="headerlink" title="2023.10"></a>2023.10</h3><p>在这一段时间里, 主要进行的是学习了, 趁着时间充足慢慢把HTML+CSS+JavaScript学完了, 也为接下来的JavaWeb的学习提前做好铺垫(我比较感兴趣)<br>可惜我一直没有把jquery搞明白()<br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo11.png"><br>MDN, 网页学习唯一指定真神!<br><br><br><br><br><br><br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo12.jpg"><br>从这里开始, 萌生了自己写博客的想法, 感谢自己搭了这么一个梯子.<br><br><br><br><br><br><br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo13.jpg"><br>当时还顺便搭了个nonebot2玩玩, 可惜go-cqhttp现在已经寄了呜呜呜<br><br><br><br><br><br><br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo14.jpg"><br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo15.jpg"><br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo16.jpg"><br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo17.jpg"><br>去四川师范大学见见高中同学, 川师的校门好大, 周围也好繁华, 真是令人羡慕啊.<br><br><br><br><br><br><br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo18.jpg"><br>数据库学习, 当时想着简单, 但真正的噩梦才正式开始…<br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo19.jpg"><br>理论学习真痛苦, 一点都看不懂.jpg<br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo20.png"><br>卡了我很久的一道题, 找了半天, 结果发现是自己误写了一小点东西…<br><br><br><br><br><br><br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo21.jpg"><br>拿到校友送的徽章了, 车车人泪目<br><br><br><br></p>
+<h3 id="2023-11"><a href="#2023-11" class="headerlink" title="2023.11"></a>2023.11</h3><p>应该是最忙的一个月, 在这个月里自学将jdbc、servlet、jsp、maven、mybatis全部搞定了, 还看了一点vue, 难是真的难, 中间我还几度想放弃掉web学习, 好在最后都有一股无形的力量让我站了起来继续前进, 还是顺利度过了难关.<br><br><br><br><br><br><br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo22.jpg"><br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo23.jpg"><br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo24.jpg"><br>跟着数据库老师坐公费车来到著名985–电子科技大学去听课, 电科校园很安静, 很漂亮, 很美好, 跟我梦想中的校园好相配. 如果哪一天能考上这里我会笑的多开心呐(做梦罢了)<br>讲座后送的一个USB, 但是是便宜货()<br><br><br><br><br><br><br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo25.jpg"><br>第一次完成一道绿题(然后就没怎么管过洛谷了, 我真是fw)</p>
+<br>
+<br>
+
+<h3 id="2023-12"><a href="#2023-12" class="headerlink" title="2023.12"></a>2023.12</h3><p>休闲的月份.</p>
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo26.jpg">
+成信银杏大道.
+<br>
+<br>
+<br>
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo27.jpg">
+我的ptt终于到12.60了!!!
+<br>
+<br>
+<br>
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo29.jpg">
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo28.jpg">
+又买二次元的东西, 二次元真害人!  
+<br>
+<br>
+<br>
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo30.jpg">
+熟悉我的人知道我超级喜欢白洲梓小姐()
+<br>
+<br>
+<br>
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo31.jpg">
+年度歌单全是音游曲, 音游玩家真的是...
+<br>
+<br>
+<br>
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo32.jpg">
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo33.jpg">
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo34.jpg">
+2023最后一天, 来成都理工大学见一位很久很久都没有见过的朋友了.  
+
+<p>成理的大真的是超乎我的想象, 我还头一次听说大学里包括了一个小区! 真令人惊讶啊.  </p>
+<p>终于感受到双流一大学和双一流大学的差距了()  </p>
+<p>后来我们一起去吃了饭, 看了电影, 这是让我非常非常开心的一天.</p>
+<p>但就是不知道, 下一次我还能有机会再见到朋友吗.<br><br><br><br></p>
+<h3 id="2024-1"><a href="#2024-1" class="headerlink" title="2024.1"></a>2024.1</h3><p>在重新开始的道路上.<br><br><br><br><br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo35.jpg"><br>新年快乐!<br><br><br><br><br><br><br><img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo37.jpg"><br>复健Web, 感觉忘了不少, 主要还是要应付考试.<br><br><br><br><br><br></p>
+<h4 id="2024-1-9"><a href="#2024-1-9" class="headerlink" title="2024.1.9"></a>2024.1.9</h4><p>做了我有史以来最胆大但又一直最想做的事情, 反正都要快20岁了, 只要心中的想法与思考 传达出去了就好了吧.<br>从现在开始, 我要把全部精力投入到学习中去了.  </p>
+<br>
+<br>
+<br>
+<img src="/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/photo36.jpg">
+买了一本高等代数作为寒假学习用, 祝愿自己在数学学习的道路上不要遇到太多挫折和困难吧()  
+
+<p>回顾大二上的生活, 还是稍微有那么一点摆的, 但这种生活还是很让我满意的.<br>希望未来的日子能一帆风顺下去.  </p>
+<p>我们一直身处在同一片天空之下.</p>
+<blockquote>
+<p>桜色の都会でいま<br>在这座樱色渲染的都会<br>时を 止めて 踊りだす<br>静止了时间　随樱起舞<br>追忆のステージを<br>在追忆的舞台上<br>走りぬける しなやかさで<br>以优美的舞步迎接终曲<br>命を纺ぐその声<br>那创造生命的清脆声音<br>响け 世界 揺さぶるほどに<br>不停迴响　摇动了世界<br>始まりの日を 二人で歌おう<br>两人一同歌唱　初始的那一天</p>
+</blockquote>
+
+    </div>
+    
+    
+    
+    <div id="comment">
+        <div id="gitalk-container"></div>
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2023 - 2024 Bin&#39;s blog
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Binbin
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+<script>
+    const gitalk = new Gitalk({
+        clientID: "dc78a87f9661af4d8654",
+        clientSecret: "9bd08e5d81504be459c5c6cf2271f2829856d941",
+        repo: "Review",
+        owner: "Sakb1n",
+        admin: "Sakb1n".split(","),
+        language: "zh-CN",
+        id: decodeURI(location.pathname),
+        
+        proxy: "https://cors-anywhere.1l1.icu/https://github.com/login/oauth/access_token",
+        
+    })
+    gitalk.render("gitalk-container");
+</script>
+
+
+
+
+        
+    </body>
+</html>
