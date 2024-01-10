@@ -33,6 +33,9 @@
 
 
 
+<script src="https://cdn.staticfile.org/gitalk/1.8.0/gitalk.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.8.0/gitalk.min.css" />
+
 
 
 
@@ -175,7 +178,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%AD%A6%E4%B9%A0-mysql/" style="color: #00a596">学习,mysql</a>
+                <a href="/tags/%E5%AD%A6%E4%B9%A0-mysql/" style="color: #00bcd4">学习,mysql</a>
             </span>
             
         </span>
@@ -301,6 +304,10 @@ END
     
     
     
+    <div id="comment">
+        <div id="gitalk-container"></div>
+    </div>
+    
     
     
     
@@ -337,6 +344,22 @@ END
         <script src="/js/main.js"></script>
         
         
+
+<script>
+    const gitalk = new Gitalk({
+        clientID: "dc78a87f9661af4d8654",
+        clientSecret: "9bd08e5d81504be459c5c6cf2271f2829856d941",
+        repo: "Review",
+        owner: "Sakb1n",
+        admin: "Sakb1n".split(","),
+        language: "zh-CN",
+        id: location.pathname,
+        
+        proxy: "https://cors-anywhere.1l1.icu/https://github.com/login/oauth/access_token",
+        
+    })
+    gitalk.render("gitalk-container");
+</script>
 
 
 
