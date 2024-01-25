@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Bin&#39;s blog</title>
+  
+  
+  <link href="https://sakb1n.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://sakb1n.github.io/"/>
+  <updated>2024-01-10T15:06:47.253Z</updated>
+  <id>https://sakb1n.github.io/</id>
+  
+  <author>
+    <name>Binbin</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>生活记录-vol1</title>
+    <link href="https://sakb1n.github.io/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/"/>
+    <id>https://sakb1n.github.io/2024/01/10/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95-vol1/</id>
+    <published>2024-01-10T13:17:25.000Z</published>
+    <updated>2024-01-10T15:06:47.253Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本篇图片约40张, 打开可能非常缓慢, 请考虑挂梯子!  &lt;/p&gt;
+&lt;p&gt;学期即将结束, 回忆一下整个大二上那些存在的温柔的记忆吧, 或许都是些零零散散的碎片, 但我还是想发出来好好再看看. ꉂ(ˊᗜˋ*)  &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="生活" scheme="https://sakb1n.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="生活" scheme="https://sakb1n.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从零开始的博客搭建生活-004</title>
+    <link href="https://sakb1n.github.io/2024/01/10/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-004/"/>
+    <id>https://sakb1n.github.io/2024/01/10/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-004/</id>
+    <published>2024-01-10T11:18:00.000Z</published>
+    <updated>2024-01-10T13:11:04.409Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;前文指引：  &lt;/p&gt;
+&lt;a href=&quot;/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/&quot; title=&quot;从零开始的博客搭建生活-001&quot;&gt;从零开始的博客搭建生活-001&lt;/a&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;a href=&quot;/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/&quot; title=&quot;从零开始的博客搭建生活-002&quot;&gt;从零开始的博客搭建生活-002&lt;/a&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;a href=&quot;/2023/10/05/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-003/&quot; title=&quot;从零开始的博客搭建生活-003&quot;&gt;从零开始的博客搭建生活-003&lt;/a&gt;</summary>
+    
+    
+    
+    <category term="学习" scheme="https://sakb1n.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="网站, 学习" scheme="https://sakb1n.github.io/tags/%E7%BD%91%E7%AB%99-%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WEB应用开发</title>
+    <link href="https://sakb1n.github.io/2024/01/06/WEB%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/"/>
+    <id>https://sakb1n.github.io/2024/01/06/WEB%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/</id>
+    <published>2024-01-06T10:08:05.000Z</published>
+    <updated>2024-01-10T13:16:34.994Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;速通WEB考试重点-祝大家都能顺利通过（）&quot;&gt;&lt;a href=&quot;#速通WEB考试重点-祝大家都能顺利通过（）&quot; class=&quot;headerlink&quot; title=&quot;速通WEB考试重点,祝大家都能顺利通过（）&quot;&gt;&lt;/a&gt;速通WEB考试重点,祝大家都能顺利通过（）&lt;/h3&gt;</summary>
+    
+    
+    
+    <category term="学习" scheme="https://sakb1n.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="复习, 学习" scheme="https://sakb1n.github.io/tags/%E5%A4%8D%E4%B9%A0-%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>年末总结与未来计划</title>
+    <link href="https://sakb1n.github.io/2023/12/23/%E8%BF%91%E6%9C%9F%E8%AE%A1%E5%88%92/"/>
+    <id>https://sakb1n.github.io/2023/12/23/%E8%BF%91%E6%9C%9F%E8%AE%A1%E5%88%92/</id>
+    <published>2023-12-23T15:50:26.000Z</published>
+    <updated>2024-01-10T11:17:21.098Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;今年总结：&quot;&gt;&lt;a href=&quot;#今年总结：&quot; class=&quot;headerlink&quot; title=&quot;今年总结：&quot;&gt;&lt;/a&gt;今年总结：&lt;/h2&gt;&lt;div class=&quot;aplayer&quot; data-id=&quot;000PeZCQ1i4XVs&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>markdown</title>
+    <link href="https://sakb1n.github.io/2023/12/23/markdown/"/>
+    <id>https://sakb1n.github.io/2023/12/23/markdown/</id>
+    <published>2023-12-23T15:45:31.000Z</published>
+    <updated>2023-12-23T16:17:31.680Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Markdown&quot;&gt;&lt;a href=&quot;#Markdown&quot; class=&quot;headerlink&quot; title=&quot;Markdown&quot;&gt;&lt;/a&gt;Markdown&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;Markdown非常适合写博客,这里介绍markdown
+&lt;/code&gt;&lt;/pre&gt;</summary>
+    
+    
+    
+    <category term="学习" scheme="https://sakb1n.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="语法,学习" scheme="https://sakb1n.github.io/tags/%E8%AF%AD%E6%B3%95-%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Recollection--DFS</title>
+    <link href="https://sakb1n.github.io/2023/11/25/Recollection-DFS/"/>
+    <id>https://sakb1n.github.io/2023/11/25/Recollection-DFS/</id>
+    <published>2023-11-25T13:28:21.000Z</published>
+    <updated>2023-11-27T15:51:39.096Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在学javaweb, 把自己博客给忘得差不多了，于是水篇文章证明我还活着()&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;DFS-深度优先搜索&quot;&gt;&lt;a href=&quot;#DFS-深度优先搜索&quot; class=&quot;headerlink&quot; title=&quot;DFS(深度优先搜索)&quot;&gt;&lt;/a&gt;DFS(深度优先搜索)&lt;/h2&gt;&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;深度优先搜索 (Depth-first-search) 是一种图的算法, 以&lt;strong&gt;深度&lt;/strong&gt;作为方向进行搜索,找到所需要的答案, 直到所有方案搜索完为止，其本质依然是暴力。 &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;走入迷宫, 向一条路径一直走下去直到走到死路为止, 再回返到最近的一个路口走另一条没有走过的路，依次类推…&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;实现dfs的核心是&lt;strong&gt;标记&lt;/strong&gt;与&lt;strong&gt;回溯&lt;/strong&gt;。 &lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="算法" scheme="https://sakb1n.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法,杂谈,学习" scheme="https://sakb1n.github.io/tags/%E7%AE%97%E6%B3%95-%E6%9D%82%E8%B0%88-%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS学习</title>
+    <link href="https://sakb1n.github.io/2023/10/26/CSS%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://sakb1n.github.io/2023/10/26/CSS%E5%AD%A6%E4%B9%A0/</id>
+    <published>2023-10-26T03:27:14.000Z</published>
+    <updated>2023-10-31T03:44:14.829Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;CSS第一步&quot;&gt;&lt;a href=&quot;#CSS第一步&quot; class=&quot;headerlink&quot; title=&quot;CSS第一步&quot;&gt;&lt;/a&gt;CSS第一步&lt;/h1&gt;&lt;h2 id=&quot;CSS起步&quot;&gt;&lt;a href=&quot;#CSS起步&quot; class=&quot;headerlink&quot; title=&quot;CSS起步&quot;&gt;&lt;/a&gt;CSS起步&lt;/h2&gt;&lt;p&gt;​	1.link:&lt;code&gt;&amp;lt;link rel = &amp;quot;stylesheet&amp;quot; href=&amp;quot;styles.css&amp;quot;/&amp;gt;&lt;/code&gt;&lt;br&gt;​	2.列表移除符号:list-style-type:none;&lt;br&gt;​	3.使用类名规范样式：CSS里写 .XXX&lt;br&gt;​	4.元素选择器可以与类名一起出现&lt;br&gt;​	5.&lt;strong&gt;包含选择符&lt;/strong&gt;  &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习" scheme="https://sakb1n.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="CSS,学习" scheme="https://sakb1n.github.io/tags/CSS-%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DOM学习</title>
+    <link href="https://sakb1n.github.io/2023/10/25/DOM%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://sakb1n.github.io/2023/10/25/DOM%E5%AD%A6%E4%B9%A0/</id>
+    <published>2023-10-25T09:26:43.000Z</published>
+    <updated>2023-10-26T01:34:58.921Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;DOM基础&quot;&gt;&lt;a href=&quot;#DOM基础&quot; class=&quot;headerlink&quot; title=&quot;DOM基础&quot;&gt;&lt;/a&gt;DOM基础&lt;/h2&gt;&lt;h3 id=&quot;DOM概述&quot;&gt;&lt;a href=&quot;#DOM概述&quot; class=&quot;headerlink&quot; title=&quot;DOM概述&quot;&gt;&lt;/a&gt;DOM概述&lt;/h3&gt;&lt;p&gt;​	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DOM(&lt;strong&gt;文档对象模型&lt;/strong&gt;)是一个网络文档的&lt;strong&gt;编程接口&lt;/strong&gt;，DOM将文档表示为节点和对象，因此编程语言可以和页面交互。&lt;/p&gt;
+&lt;p&gt;​	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;网页是既可以在浏览器窗口中显示，又可以作为HTML源代码的文档，用DOM使它可以被操作。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习" scheme="https://sakb1n.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="DOM,学习" scheme="https://sakb1n.github.io/tags/DOM-%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javaScript基础学习ver1.2</title>
+    <link href="https://sakb1n.github.io/2023/10/19/javascript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0ver1-0/"/>
+    <id>https://sakb1n.github.io/2023/10/19/javascript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0ver1-0/</id>
+    <published>2023-10-19T04:38:49.000Z</published>
+    <updated>2023-10-22T16:27:21.832Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;2023.10.22: 更新了js对象内容(ver1.2)&lt;br&gt;2023.10.21: 优化了排版，更新至ver1.1&lt;br&gt;2023.10.19：更新js ver1.0&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;JavaScript学习（MDN）&quot;&gt;&lt;a href=&quot;#JavaScript学习（MDN）&quot; class=&quot;headerlink&quot; title=&quot;JavaScript学习（MDN）&quot;&gt;&lt;/a&gt;JavaScript学习（MDN）&lt;/h1&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在MDN上的javascript基础学习。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习" scheme="https://sakb1n.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="笔记,学习,js" scheme="https://sakb1n.github.io/tags/%E7%AC%94%E8%AE%B0-%E5%AD%A6%E4%B9%A0-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sql学习ver1.0</title>
+    <link href="https://sakb1n.github.io/2023/10/16/sql%E5%AD%A6%E4%B9%A0ver1-0/"/>
+    <id>https://sakb1n.github.io/2023/10/16/sql%E5%AD%A6%E4%B9%A0ver1-0/</id>
+    <published>2023-10-16T13:06:44.000Z</published>
+    <updated>2023-10-19T04:38:04.759Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;2023.10.19：文章周末更新，会把排版优化一下~&lt;br&gt;2023.10.16：更新sql ver1.0&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;数据库概念&quot;&gt;&lt;a href=&quot;#数据库概念&quot; class=&quot;headerlink&quot; title=&quot;数据库概念&quot;&gt;&lt;/a&gt;数据库概念&lt;/h2&gt;&lt;p&gt;操作者用SQL语言向数据库管理系统(DBMS)发出指令，系统在数据库(DB)里进行操作。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习" scheme="https://sakb1n.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="学习,mysql" scheme="https://sakb1n.github.io/tags/%E5%AD%A6%E4%B9%A0-mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从零开始的博客搭建生活-003</title>
+    <link href="https://sakb1n.github.io/2023/10/05/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-003/"/>
+    <id>https://sakb1n.github.io/2023/10/05/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-003/</id>
+    <published>2023-10-04T16:15:24.000Z</published>
+    <updated>2023-10-07T04:54:05.213Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;前文指引：  &lt;/p&gt;
+&lt;a href=&quot;/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/&quot; title=&quot;从零开始的博客搭建生活-001&quot;&gt;从零开始的博客搭建生活-001&lt;/a&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;a href=&quot;/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/&quot; title=&quot;从零开始的博客搭建生活-002&quot;&gt;从零开始的博客搭建生活-002&lt;/a&gt;  
+
+&lt;p&gt;今天写的是对博客各种功能的学习。预计这个系列在下一集就会完结www。&lt;br&gt;&lt;br&gt; &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="开发" scheme="https://sakb1n.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="网页,Hexo,博客" scheme="https://sakb1n.github.io/tags/%E7%BD%91%E9%A1%B5-Hexo-%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从零开始的博客搭建生活-002</title>
+    <link href="https://sakb1n.github.io/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/"/>
+    <id>https://sakb1n.github.io/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/</id>
+    <published>2023-10-03T15:31:04.000Z</published>
+    <updated>2023-10-07T04:53:20.293Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;前文指引：&lt;a href=&quot;/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/&quot; title=&quot;从零开始的博客搭建生活-001&quot;&gt;从零开始的博客搭建生活-001&lt;/a&gt;&lt;/p&gt;
+&lt;img src=&quot;/2023/10/03/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-002/photo3.jpg&quot;&gt;</summary>
+    
+    
+    
+    <category term="开发" scheme="https://sakb1n.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="网页,Hexo,博客" scheme="https://sakb1n.github.io/tags/%E7%BD%91%E9%A1%B5-Hexo-%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从零开始的博客搭建生活-001</title>
+    <link href="https://sakb1n.github.io/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/"/>
+    <id>https://sakb1n.github.io/2023/10/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%94%9F%E6%B4%BB-001/</id>
+    <published>2023-10-01T15:40:23.000Z</published>
+    <updated>2023-10-07T04:53:53.198Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;del&gt;这是一个预谋已久的计划&lt;/del&gt;&lt;br&gt;准备搭建一个属于自己的个人博客，至于原因，就是闲来无事在上面写点文章。&lt;br&gt;该系列会持续更新，这是第一篇，大概会更新4~5集，讲讲我这个新手从零开始的艰辛路程（）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdnimg.gamekee.com/wiki2.0/images/w_3648/h_2753/829/43637/2022/11/14/817958.png&quot; alt=&quot;小天使镇楼&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="开发" scheme="https://sakb1n.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="网页,Hexo,博客" scheme="https://sakb1n.github.io/tags/%E7%BD%91%E9%A1%B5-Hexo-%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+</feed>
