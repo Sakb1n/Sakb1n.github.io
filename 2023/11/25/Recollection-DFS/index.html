@@ -1,206 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-        <meta charset="utf-8" />
-        <title>Recollection--DFS | Bin&#39;s blog</title>
-        <meta name="author" content="Binbin" />
-        <meta name="description" content="小彬彬的博客" />
-        <meta name="keywords" content="hexo,node,blog" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <link rel="icon" href="/images/pic.jpg" />
-        <script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
-<link rel="stylesheet" href="/css/fonts.min.css" />
-<script> const mixins = {}; </script>
-
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
-
-<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
-<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
-/>
-<script src="/js/lib/highlight.js"></script>
-
-
-<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
-<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
-<script src="/js/lib/math.js"></script>
-
-
-<script src="/js/lib/preview.js"></script>
-
-
-
-
-
-<script src="https://cdn.staticfile.org/gitalk/1.8.0/gitalk.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.8.0/gitalk.min.css" />
-
-
-
-
-
-<link rel="stylesheet" href="/css/main.css" />
-
-    <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Bin's blog" type="application/atom+xml">
-</head>
-    <body>
-        <div id="layout">
-            <transition name="fade">
-                <div id="loading" v-show="loading">
-                    <div id="loading-circle">
-                        <h2>LOADING</h2>
-                        <p>加载过慢请开启缓存 浏览器默认开启</p>
-                        <img src="/images/loading.gif" />
-                    </div>
-                </div>
-            </transition>
-            <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
-    <nav id="desktop-menu">
-        <a class="title" href="/">
-            <span>BIN&#39;S BLOG</span>
-        </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
-        </a>
-        
-        <a href="/categories">
-            <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
-        </a>
-        
-        <a href="/tags">
-            <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
-        </a>
-        
-    </nav>
-    <nav id="mobile-menu">
-        <div class="title" @click="showMenuItems = !showMenuItems">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;BIN&#39;S BLOG</span>
-        </div>
-        <transition name="slide">
-            <div class="items" v-show="showMenuItems">
-                
-                <a href="/">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-house fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                    </div>
-                </a>
-                
-                <a href="/about">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
-                    </div>
-                </a>
-                
-                <a href="/archives">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-box-archive fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                    </div>
-                </a>
-                
-                <a href="/categories">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
-                    </div>
-                </a>
-                
-                <a href="/tags">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
-                    </div>
-                </a>
-                
-            </div>
-        </transition>
-    </nav>
-</div>
-<transition name="fade">
-    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
-</transition>
-
-            <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-                <div class="article">
-    <div>
-        <h1>Recollection--DFS</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/11/25
-        </span>
-        
-        <span class="category">
-            <a href="/categories/%E7%AE%97%E6%B3%95/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                算法
-            </a>
-        </span>
-        
-        
-        <span class="tags">
-            <span class="icon">
-                <i class="fa-solid fa-tags fa-fw"></i>
-            </span>
-            
-            
-            <span class="tag">
-                
-                <a href="/tags/%E7%AE%97%E6%B3%95-%E6%9D%82%E8%B0%88-%E5%AD%A6%E4%B9%A0/" style="color: #ffa2c4">算法,杂谈,学习</a>
-            </span>
-            
-        </span>
-        
-    </div>
-    
-    <div class="content" v-pre>
-        <blockquote>
-<p> &nbsp;&nbsp;&nbsp;&nbsp;最近在学javaweb, 把自己博客给忘得差不多了，于是水篇文章证明我还活着()</p>
-</blockquote>
-<h2 id="DFS-深度优先搜索"><a href="#DFS-深度优先搜索" class="headerlink" title="DFS(深度优先搜索)"></a>DFS(深度优先搜索)</h2><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;深度优先搜索 (Depth-first-search) 是一种图的算法, 以<strong>深度</strong>作为方向进行搜索,找到所需要的答案, 直到所有方案搜索完为止，其本质依然是暴力。 </p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;走入迷宫, 向一条路径一直走下去直到走到死路为止, 再回返到最近的一个路口走另一条没有走过的路，依次类推…<br>&nbsp;&nbsp;&nbsp;&nbsp;实现dfs的核心是<strong>标记</strong>与<strong>回溯</strong>。 </p>
-</blockquote>
-<span id="more"></span>
-<h2 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h2><pre><code class="c"> void dfs(int x)&#123;
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>Recollection--DFS | Bin&#39;s blog</title><meta name="author" content="Binbin"><meta name="description" content="小彬彬的博客"><meta name="keywords" content="hexo,node,blog"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><link rel="icon" href="/images/pic.jpg"><script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="/css/fonts.min.css"><script>const mixins={}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script><script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script><script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script><link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"><script src="/js/lib/highlight.js"></script><script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script><script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script><link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css"><script src="/js/lib/math.js"></script><script src="/js/lib/preview.js"></script><script src="https://cdn.staticfile.org/gitalk/1.8.0/gitalk.min.js"></script><link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.8.0/gitalk.min.css"><link rel="stylesheet" href="/css/main.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Bin's blog" type="application/atom+xml"></head><body><div id="background"></div><div id="layout"><transition name="fade"><div id="loading" v-show="loading"><div id="loading-circle"><h2>LOADING</h2><p>加载过慢请开启缓存 浏览器默认开启</p><img src="/images/loading.gif"></div></div></transition><div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}"><nav id="desktop-menu"><a class="title" href="/"><span>BIN&#39;S BLOG</span> </a><a href="/"><i class="fa-solid fa-house fa-fw"></i> <span>&ensp;Home</span> </a><a href="/about"><i class="fa-solid fa-id-card fa-fw"></i> <span>&ensp;About</span> </a><a href="/archives"><i class="fa-solid fa-box-archive fa-fw"></i> <span>&ensp;Archives</span> </a><a href="/categories"><i class="fa-solid fa-bookmark fa-fw"></i> <span>&ensp;Categories</span> </a><a href="/tags"><i class="fa-solid fa-tags fa-fw"></i> <span>&ensp;Tags</span></a></nav><nav id="mobile-menu"><div class="title" @click="showMenuItems = !showMenuItems"><i class="fa-solid fa-bars fa-fw"></i> <span>&emsp;BIN&#39;S BLOG</span></div><transition name="slide"><div class="items" v-show="showMenuItems"><a href="/"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-house fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">Home</div></div></a><a href="/about"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-id-card fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">About</div></div></a><a href="/archives"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-box-archive fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">Archives</div></div></a><a href="/categories"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-bookmark fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">Categories</div></div></a><a href="/tags"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-tags fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">Tags</div></div></a></div></transition></nav></div><transition name="fade"><div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div></transition><div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'"><div class="article"><div><h1>Recollection--DFS</h1></div><div class="info"><span class="date"><span class="icon"><i class="fa-solid fa-calendar fa-fw"></i> </span>2023/11/25 </span><span class="category"><a href="/categories/%E7%AE%97%E6%B3%95/"><span class="icon"><i class="fa-solid fa-bookmark fa-fw"></i> </span>算法 </a></span><span class="tags"><span class="icon"><i class="fa-solid fa-tags fa-fw"></i> </span><span class="tag"><a href="/tags/%E7%AE%97%E6%B3%95/" style="color:#ffa2c4">算法</a></span></span></div><div class="content" v-pre><blockquote><p>&nbsp;&nbsp;&nbsp;&nbsp;最近在学javaweb, 把自己博客给忘得差不多了，于是水篇文章证明我还活着()</p></blockquote><h2 id="DFS-深度优先搜索"><a href="#DFS-深度优先搜索" class="headerlink" title="DFS(深度优先搜索)"></a>DFS(深度优先搜索)</h2><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;深度优先搜索 (Depth-first-search) 是一种图的算法, 以<strong>深度</strong>作为方向进行搜索,找到所需要的答案, 直到所有方案搜索完为止，其本质依然是暴力。</p><blockquote><p>&nbsp;&nbsp;&nbsp;&nbsp;走入迷宫, 向一条路径一直走下去直到走到死路为止, 再回返到最近的一个路口走另一条没有走过的路，依次类推…<br>&nbsp;&nbsp;&nbsp;&nbsp;实现dfs的核心是<strong>标记</strong>与<strong>回溯</strong>。</p></blockquote><span id="more"></span><h2 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h2><pre><code class="c"> void dfs(int x)&#123;
     if(满足停止搜索条件)&#123;
         ...        //处理
         return;
@@ -213,17 +11,7 @@
         &#125;
     &#125;
 &#125;
-</code></pre>
-<p>dfs变化多样,不一定就要照着模版写。</p>
-<h2 id="题目尝试"><a href="#题目尝试" class="headerlink" title="题目尝试"></a>题目尝试</h2><blockquote>
-<p>C语言新手, 请多多指教。</p>
-</blockquote>
-<h3 id="CF6A-Triangle"><a href="#CF6A-Triangle" class="headerlink" title="CF6A Triangle"></a>CF6A Triangle</h3><img src="/2023/11/25/Recollection-DFS/CF6A.png">
-&nbsp;&nbsp;&nbsp;&nbsp;这是一道入门题, 数据少也不卡时间, 可以直接通过暴力枚举得到结果简单方便, 但还是用dfs来练练手()  
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;我们可以先将所有木棍从小到大排序,当我们任意取出3根木棍时，这3根木棍的长度一定是有序的,判断三角形时只需要将1、2号木棍与3号木棍长度进行比较即可。  </p>
-<p><em>AC代码:</em></p>
-<pre><code class="c">#include&lt;stdio.h&gt;
+</code></pre><p>dfs变化多样,不一定就要照着模版写。</p><h2 id="题目尝试"><a href="#题目尝试" class="headerlink" title="题目尝试"></a>题目尝试</h2><blockquote><p>C语言新手, 请多多指教。</p></blockquote><h3 id="CF6A-Triangle"><a href="#CF6A-Triangle" class="headerlink" title="CF6A Triangle"></a>CF6A Triangle</h3><img src="/2023/11/25/Recollection-DFS/CF6A.png"> &nbsp;&nbsp;&nbsp;&nbsp;这是一道入门题, 数据少也不卡时间, 可以直接通过暴力枚举得到结果简单方便, 但还是用dfs来练练手()<p>&nbsp;&nbsp;&nbsp;&nbsp;我们可以先将所有木棍从小到大排序,当我们任意取出3根木棍时，这3根木棍的长度一定是有序的,判断三角形时只需要将1、2号木棍与3号木棍长度进行比较即可。</p><p><em>AC代码:</em></p><pre><code class="c">#include&lt;stdio.h&gt;
 #include&lt;bits/stdc++.h&gt;
 using namespace std;
 //直接调用C++的sort排序，懒得写排序了。 
@@ -285,13 +73,7 @@ int main(void)
         printf(&quot;SEGMENT&quot;);
     &#125;
 &#125;
-</code></pre>
-<h3 id="CF629A-Far-Relative’s-Birthday-Cake"><a href="#CF629A-Far-Relative’s-Birthday-Cake" class="headerlink" title="CF629A Far Relative’s Birthday Cake"></a>CF629A Far Relative’s Birthday Cake</h3><img src="/2023/11/25/Recollection-DFS/CF629A.png">
-&nbsp;&nbsp;&nbsp;&nbsp;解释解释到底说了什么：只要在一行或一列上找到一对CC,就得到一点幸福指数，求总幸福指数。
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;我们使用dfs进行搜索时带上一个数组arr1,用它来标记是否搜索过该元素,递归完成后取消标记,这就是标记与回溯。</p>
-<p><em>AC代码:</em></p>
-<pre><code class="c">#include&lt;stdio.h&gt;
+</code></pre><h3 id="CF629A-Far-Relative’s-Birthday-Cake"><a href="#CF629A-Far-Relative’s-Birthday-Cake" class="headerlink" title="CF629A Far Relative’s Birthday Cake"></a>CF629A Far Relative’s Birthday Cake</h3><img src="/2023/11/25/Recollection-DFS/CF629A.png"> &nbsp;&nbsp;&nbsp;&nbsp;解释解释到底说了什么：只要在一行或一列上找到一对CC,就得到一点幸福指数，求总幸福指数。<p>&nbsp;&nbsp;&nbsp;&nbsp;我们使用dfs进行搜索时带上一个数组arr1,用它来标记是否搜索过该元素,递归完成后取消标记,这就是标记与回溯。</p><p><em>AC代码:</em></p><pre><code class="c">#include&lt;stdio.h&gt;
 
 const int MAX = 110;
 int n, arr[MAX][MAX] = &#123;0&#125;, arr1[MAX][MAX], count = 0, i, j;
@@ -349,13 +131,7 @@ int main(void)
     &#125;
     printf(&quot;%d&quot;, count);
 &#125;
-</code></pre>
-<h3 id="P1706-全排列问题"><a href="#P1706-全排列问题" class="headerlink" title="P1706 全排列问题"></a>P1706 全排列问题</h3><img src="/2023/11/25/Recollection-DFS/P1706.png">
-&nbsp;&nbsp;&nbsp;&nbsp;经典题,与上题思想一致,使用dfs深度搜索,用另一个数组去标记是否搜索过该数。
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;与第一道题不同, 我们所搜索的元素只可能在当前位置之后, 所以直接从当前位置循环, 而此题的排列没有任何顺序可言,我们从数组中遍历没有被标记的元素来作为下一个应该排的位置,所以区别还是挺大的()</p>
-<p><em>AC代码:</em></p>
-<pre><code class="c">#include&lt;stdio.h&gt;
+</code></pre><h3 id="P1706-全排列问题"><a href="#P1706-全排列问题" class="headerlink" title="P1706 全排列问题"></a>P1706 全排列问题</h3><img src="/2023/11/25/Recollection-DFS/P1706.png"> &nbsp;&nbsp;&nbsp;&nbsp;经典题,与上题思想一致,使用dfs深度搜索,用另一个数组去标记是否搜索过该数。<p>&nbsp;&nbsp;&nbsp;&nbsp;与第一道题不同, 我们所搜索的元素只可能在当前位置之后, 所以直接从当前位置循环, 而此题的排列没有任何顺序可言,我们从数组中遍历没有被标记的元素来作为下一个应该排的位置,所以区别还是挺大的()</p><p><em>AC代码:</em></p><pre><code class="c">#include&lt;stdio.h&gt;
 
 int a[10], v[10], n;
 void dfs(int t)&#123;
@@ -384,12 +160,7 @@ int main(void)
     scanf(&quot;%d&quot;, &amp;n);
     dfs(1);
 &#125;
-</code></pre>
-<h3 id="P1451-求细胞数量"><a href="#P1451-求细胞数量" class="headerlink" title="P1451 求细胞数量"></a>P1451 求细胞数量</h3><img src="/2023/11/25/Recollection-DFS/P1451.png">
-&nbsp;&nbsp;&nbsp;&nbsp;连通块问题,只要连通的区域统统都算1个,直接dfs,将要搜索的设为1,dfs搜索到的区域统统变为0,注意递归时是朝东南西北四个方向进行搜索, 当触碰到边界时停止搜索。
-
-<p><em>AC代码:</em></p>
-<pre><code class="c">#include&lt;stdio.h&gt;
+</code></pre><h3 id="P1451-求细胞数量"><a href="#P1451-求细胞数量" class="headerlink" title="P1451 求细胞数量"></a>P1451 求细胞数量</h3><img src="/2023/11/25/Recollection-DFS/P1451.png"> &nbsp;&nbsp;&nbsp;&nbsp;连通块问题,只要连通的区域统统都算1个,直接dfs,将要搜索的设为1,dfs搜索到的区域统统变为0,注意递归时是朝东南西北四个方向进行搜索, 当触碰到边界时停止搜索。<p><em>AC代码:</em></p><pre><code class="c">#include&lt;stdio.h&gt;
 const int MAX = 110;
 int m, n;
 int arr[MAX][MAX];
@@ -450,13 +221,7 @@ int main(void)
     &#125;
     printf(&quot;%d&quot;, count);
 &#125;
-</code></pre>
-<h3 id="P1506-拯救oibh总部"><a href="#P1506-拯救oibh总部" class="headerlink" title="P1506 拯救oibh总部"></a>P1506 拯救oibh总部</h3><img src="/2023/11/25/Recollection-DFS/P1506.png">
-&nbsp;&nbsp;&nbsp;&nbsp;如果你依然想套用上一题并信心满满的提交时,你会收到全WA的惊喜(我也一样233)  
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;其实我们可以在最外围搜一圈,凡是被洪水淹没的地段都设为1,最后循环查找没被淹没的地方(值为0的地方)就行了()</p>
-<p><em>AC代码:</em></p>
-<pre><code class="c">#include&lt;stdio.h&gt;
+</code></pre><h3 id="P1506-拯救oibh总部"><a href="#P1506-拯救oibh总部" class="headerlink" title="P1506 拯救oibh总部"></a>P1506 拯救oibh总部</h3><img src="/2023/11/25/Recollection-DFS/P1506.png"> &nbsp;&nbsp;&nbsp;&nbsp;如果你依然想套用上一题并信心满满的提交时,你会收到全WA的惊喜(我也一样233)<p>&nbsp;&nbsp;&nbsp;&nbsp;其实我们可以在最外围搜一圈,凡是被洪水淹没的地段都设为1,最后循环查找没被淹没的地方(值为0的地方)就行了()</p><p><em>AC代码:</em></p><pre><code class="c">#include&lt;stdio.h&gt;
 const int MAX = 510;
 int arr[MAX][MAX], m, n, count = 0;
 //方向数组
@@ -535,11 +300,7 @@ int main(void)
     &#125;
     printf(&quot;%d&quot;, count);
 &#125;
-</code></pre>
-<h3 id="P1036-NOIP2002-普及组-选数"><a href="#P1036-NOIP2002-普及组-选数" class="headerlink" title="P1036 [NOIP2002 普及组] 选数"></a>P1036 [NOIP2002 普及组] 选数</h3><img src="/2023/11/25/Recollection-DFS/P1036.png">
-&nbsp;&nbsp;&nbsp;&nbsp;此题跟其他dfs题如出一辙,可以说照着模版写就是了,唯一可能卡的点是判断是否为质数:  
-
-<pre><code class="c">int prime(int sum)
+</code></pre><h3 id="P1036-NOIP2002-普及组-选数"><a href="#P1036-NOIP2002-普及组-选数" class="headerlink" title="P1036 [NOIP2002 普及组] 选数"></a>P1036 [NOIP2002 普及组] 选数</h3><img src="/2023/11/25/Recollection-DFS/P1036.png"> &nbsp;&nbsp;&nbsp;&nbsp;此题跟其他dfs题如出一辙,可以说照着模版写就是了,唯一可能卡的点是判断是否为质数:<pre><code class="c">int prime(int sum)
 &#123;
     for (int i = 2; i * i &lt;= sum; i++)
     &#123;
@@ -550,22 +311,10 @@ int main(void)
     &#125;
     return 1;
 &#125;
-</code></pre>
-<p>dfs部分不作展示。</p>
-<h3 id="USACO10OCT-Lake-Counting-S"><a href="#USACO10OCT-Lake-Counting-S" class="headerlink" title="[USACO10OCT] Lake Counting S"></a>[USACO10OCT] Lake Counting S</h3><img src="/2023/11/25/Recollection-DFS/P1596.png">  
-&nbsp;&nbsp;&nbsp;&nbsp;也是一般dfs思路,唯一不同的地方在于为八个方向,只需要将方向数组修改就行了。
-
-<pre><code class="c">    //东、东南、南、西南、西、西北、北、东北
+</code></pre><p>dfs部分不作展示。</p><h3 id="USACO10OCT-Lake-Counting-S"><a href="#USACO10OCT-Lake-Counting-S" class="headerlink" title="[USACO10OCT] Lake Counting S"></a>[USACO10OCT] Lake Counting S</h3><img src="/2023/11/25/Recollection-DFS/P1596.png"> &nbsp;&nbsp;&nbsp;&nbsp;也是一般dfs思路,唯一不同的地方在于为八个方向,只需要将方向数组修改就行了。<pre><code class="c">    //东、东南、南、西南、西、西北、北、东北
     int ax[9] = &#123;0, 0, 1, 1, 1, 0, -1, -1, -1&#125;;
     int ay[9] = &#123;0, 1, 1, 0, -1, -1, -1, 0, 1&#125;;
-</code></pre>
-<p>dfs部分不作展示。 </p>
-<h3 id="USACO1-5-八皇后-Checker-Challenge"><a href="#USACO1-5-八皇后-Checker-Challenge" class="headerlink" title="[USACO1.5] 八皇后 Checker Challenge"></a>[USACO1.5] 八皇后 Checker Challenge</h3><img src="/2023/11/25/Recollection-DFS/P1219.png">
-&nbsp;&nbsp;&nbsp;&nbsp;喜欢我八皇后吗,说实话,真的没一点思路。
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;在这个棋盘上,行列对角线上只能存在一个棋子,我写了点。<br><img src="/2023/11/25/Recollection-DFS/photo.jpg"></p>
-<p><em>AC代码:</em></p>
-<pre><code class="c">#include&lt;stdio.h&gt;
+</code></pre><p>dfs部分不作展示。</p><h3 id="USACO1-5-八皇后-Checker-Challenge"><a href="#USACO1-5-八皇后-Checker-Challenge" class="headerlink" title="[USACO1.5] 八皇后 Checker Challenge"></a>[USACO1.5] 八皇后 Checker Challenge</h3><img src="/2023/11/25/Recollection-DFS/P1219.png"> &nbsp;&nbsp;&nbsp;&nbsp;喜欢我八皇后吗,说实话,真的没一点思路。<p>&nbsp;&nbsp;&nbsp;&nbsp;在这个棋盘上,行列对角线上只能存在一个棋子,我写了点。<br><img src="/2023/11/25/Recollection-DFS/photo.jpg"></p><p><em>AC代码:</em></p><pre><code class="c">#include&lt;stdio.h&gt;
 #include&lt;math.h&gt;
 //分别对应行,主对角线,副对角线,答案数组。
 int col[14], d1[30], d2[50], ans[14];
@@ -609,13 +358,7 @@ int main(void)
     dfs(1);
     printf(&quot;%d&quot;, w);
 &#125;
-</code></pre>
-<h3 id="P1189-SEARCH"><a href="#P1189-SEARCH" class="headerlink" title="P1189 SEARCH"></a>P1189 SEARCH</h3><img src="/2023/11/25/Recollection-DFS/P1189.png">
-&nbsp;&nbsp;&nbsp;&nbsp;这个题的意思是给你一个初始地与N个方向,N个方向都要按顺序使用,寻找到它最终的落脚点,这题DFS和BFS都可以用
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;参考：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/dingcx-juruo/solution-p1189">dingcx:P1189 SEARCH</a><br>&nbsp;&nbsp;&nbsp;&nbsp;考虑直接使用dfs会超时,我们选择优化,因为在dfs搜索过程中会出现多条路都通向一个节点的情况,我们在标记数组中加入方向长度减少这种情况,就进行优化,详细请读一读上面这篇文章~</p>
-<p><em>AC代码:</em></p>
-<pre><code class="c">#include&lt;stdio.h&gt;
+</code></pre><h3 id="P1189-SEARCH"><a href="#P1189-SEARCH" class="headerlink" title="P1189 SEARCH"></a>P1189 SEARCH</h3><img src="/2023/11/25/Recollection-DFS/P1189.png"> &nbsp;&nbsp;&nbsp;&nbsp;这个题的意思是给你一个初始地与N个方向,N个方向都要按顺序使用,寻找到它最终的落脚点,这题DFS和BFS都可以用<p>&nbsp;&nbsp;&nbsp;&nbsp;参考：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/dingcx-juruo/solution-p1189">dingcx:P1189 SEARCH</a><br>&nbsp;&nbsp;&nbsp;&nbsp;考虑直接使用dfs会超时,我们选择优化,因为在dfs搜索过程中会出现多条路都通向一个节点的情况,我们在标记数组中加入方向长度减少这种情况,就进行优化,详细请读一读上面这篇文章~</p><p><em>AC代码:</em></p><pre><code class="c">#include&lt;stdio.h&gt;
 const int MAX = 55;
 const int MAXN = 1010;
 int m, n, arr[MAX][MAX], arr1[MAXN][MAX][MAX], stx, sty, N, dir[MAXN];
@@ -717,75 +460,4 @@ int main(void)
         printf(&quot;\n&quot;);
     &#125;
 &#125;
-</code></pre>
-<blockquote>
-<p>春空舞う花びらは，<br>過ぎ去った奇跡じゃなく，<br>巡った季節を超えても輝いて，<br>二人の未来を彩るよ。</p>
-</blockquote>
-
-    </div>
-    
-    
-    
-    <div id="comment">
-        <div id="gitalk-container"></div>
-    </div>
-    
-    
-    
-    
-    
-</div>
-
-                <footer id="footer">
-    <div id="footer-wrap">
-        <div>
-            &copy;
-            2023 - 2024 Bin&#39;s blog
-            <span id="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            &commat;Binbin
-        </div>
-        <div>
-            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
-        </div>
-        
-    </div>
-</footer>
-
-            </div>
-            
-            <transition name="fade">
-                <div id="preview" ref="preview" v-show="previewShow">
-                    <img id="preview-content" ref="previewContent" />
-                </div>
-            </transition>
-            
-        </div>
-        <script src="/js/main.js"></script>
-        
-        
-
-<script>
-    const gitalk = new Gitalk({
-        clientID: "dc78a87f9661af4d8654",
-        clientSecret: "9bd08e5d81504be459c5c6cf2271f2829856d941",
-        repo: "Review",
-        owner: "Sakb1n",
-        admin: "Sakb1n".split(","),
-        language: "zh-CN",
-        id: decodeURI(location.pathname),
-        
-        proxy: "https://cors-anywhere.1l1.icu/https://github.com/login/oauth/access_token",
-        
-    })
-    gitalk.render("gitalk-container");
-</script>
-
-
-
-
-        
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
-</html>
+</code></pre><blockquote><p>春空舞う花びらは，<br>過ぎ去った奇跡じゃなく，<br>巡った季節を超えても輝いて，<br>二人の未来を彩るよ。</p></blockquote></div><div id="comment"><div id="gitalk-container"></div></div></div><footer id="footer"><div id="footer-wrap"><div>&copy; 2023 - 2024 Bin&#39;s blog <span id="footer-icon"><i class="fa-solid fa-font-awesome fa-fw"></i> </span>&commat;Binbin</div><div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp; <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a></div></div></footer></div><transition name="fade"><div id="preview" ref="preview" v-show="previewShow"><img id="preview-content" ref="previewContent"></div></transition></div><script src="/js/main.js"></script><script>const gitalk=new Gitalk({clientID:"dc78a87f9661af4d8654",clientSecret:"9bd08e5d81504be459c5c6cf2271f2829856d941",repo:"Review",owner:"Sakb1n",admin:"Sakb1n".split(","),language:"zh-CN",id:decodeURI(location.pathname),proxy:"https://cors-anywhere.1l1.icu/https://github.com/login/oauth/access_token"});gitalk.render("gitalk-container")</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/z16.model.json"},display:{position:"right",width:150,height:300,hOffset:-15,vOffset:-15},mobile:{show:!0},react:{opacity:.7},log:!1})</script></body></html>
