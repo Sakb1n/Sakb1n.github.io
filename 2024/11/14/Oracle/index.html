@@ -1,0 +1,248 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>Oracle | Bin&#39;s blog</title><meta name="author" content="Binbin"><meta name="description" content="小彬彬的博客"><meta name="keywords" content="hexo,node,blog"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><link rel="icon" href="/images/pic.jpg"><script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="/css/fonts.min.css"><script>const mixins={}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script><script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script><script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script><link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"><script src="/js/lib/highlight.js"></script><script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script><script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script><link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css"><script src="/js/lib/math.js"></script><script src="/js/lib/preview.js"></script><link rel="stylesheet" href="/css/main.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Bin's blog" type="application/atom+xml"></head><body><div id="background"></div><div id="layout"><transition name="fade"><div id="loading" v-show="loading"><div id="loading-circle"><h2>LOADING</h2><p>加载过慢请开启缓存 浏览器默认开启</p><img src="/images/loading.gif"></div></div></transition><div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}"><nav id="desktop-menu"><a class="title" href="/"><span>BIN&#39;S BLOG</span> </a><a href="/"><i class="fa-solid fa-house fa-fw"></i> <span>&ensp;Home</span> </a><a href="/about"><i class="fa-solid fa-id-card fa-fw"></i> <span>&ensp;About</span> </a><a href="/archives"><i class="fa-solid fa-box-archive fa-fw"></i> <span>&ensp;Archives</span> </a><a href="/categories"><i class="fa-solid fa-bookmark fa-fw"></i> <span>&ensp;Categories</span> </a><a href="/tags"><i class="fa-solid fa-tags fa-fw"></i> <span>&ensp;Tags</span></a></nav><nav id="mobile-menu"><div class="title" @click="showMenuItems = !showMenuItems"><i class="fa-solid fa-bars fa-fw"></i> <span>&emsp;BIN&#39;S BLOG</span></div><transition name="slide"><div class="items" v-show="showMenuItems"><a href="/"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-house fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">Home</div></div></a><a href="/about"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-id-card fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">About</div></div></a><a href="/archives"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-box-archive fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">Archives</div></div></a><a href="/categories"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-bookmark fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">Categories</div></div></a><a href="/tags"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-tags fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">Tags</div></div></a></div></transition></nav></div><transition name="fade"><div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div></transition><div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'"><div class="article"><div><h1>Oracle</h1></div><div class="info"><span class="date"><span class="icon"><i class="fa-solid fa-calendar fa-fw"></i> </span>2024/11/14</span></div><div class="content" v-pre><h2 id="Oracle默认用户"><a href="#Oracle默认用户" class="headerlink" title="Oracle默认用户"></a>Oracle默认用户</h2><ul><li>SYS:权限最大的管理员账号</li><li>SYSTEM:仅次于SYS,用于创建和管理数据库中的表与视图</li><li>SYSMAN：企业管理的超级管理员账号</li><li>DBSNMP：智能代理用户, 用于监控和管理数据库相关性能</li><li>SYSDBA：执行数据库启动关闭、备份恢复等操作</li><li>SYSOPER：可以启动关闭数据库</li></ul><pre><code class="shell">   sqlplus system/abcdef@orcl //以system用户登录数据库  
+   sqlplus sys/abcdef@orcl as sysdba //以sys用户登录数据库
+   connect simhr/abcdef //在sqlplus里进行账号切换
+</code></pre><h2 id="Oracle体系结构"><a href="#Oracle体系结构" class="headerlink" title="Oracle体系结构"></a>Oracle体系结构</h2><p>oracle的物理存储结构主要分为：数据、日志、控制、初始化参数文件.<br>逻辑存储将存储空间依次划分为表空间、段、盘区与数据块。</p><blockquote><p>一个数据库从逻辑结构上划分多个表空间,一个表空间继续划分为多个段,一个段又被划分为多个盘区,一个盘区又被划分为多个数据块。<br>表空间是数据库中最大的逻辑存储结构, 盘区是最小的磁盘空间分配单元, 数据块是Oracle最小的数据读写单元.<br><img src="https://binpicgo.oss-cn-chengdu.aliyuncs.com/img/%E5%9B%BE%E7%89%871.png"></p></blockquote><h2 id="oracle方案对象"><a href="#oracle方案对象" class="headerlink" title="oracle方案对象"></a>oracle方案对象</h2><p>方案对象：表、视图、索引、触发器、同义词、序列、函数、过程、包…<br>非方案对象：表空间、用户、角色、回退段、目录…</p><h3 id="Tables"><a href="#Tables" class="headerlink" title="Tables"></a>Tables</h3><pre><code class="shell">  //创建表
+  CREATE TABLE T_DEPT(deptno NUMBER(2),
+                      dname VARCHAR2(14),
+                      loc   VARCHAR2(13));
+  //查询表结构
+  DESCRIBE T_USER;
+  
+  //修改表
+  ALTER TABLE T_DEPT ADD (job VARCHAR2(9));
+  ALTER TABLE T_DEPT MODIFY (dname VARCHAR2(15));
+  ALTER TABLE T_DEPT SET UNUSED COLUMN JOB;
+  DROP UNUSED COLUMNS;
+  
+  //删除表, 不能回退
+  DROP TABLE T_DEPT CASCADE CONSTRAINTS;
+  
+  //改名
+  RENAME T_DEPT TO T_DEPARTMENT;
+  
+  //截断表
+  TRUNCATE TABLE T_DEPT;
+  
+  //增加注释
+  COMMENT ON TABLE T_DEPT IS &#39;DEPT INFORMATION&#39;;
+</code></pre><p>oracle中可以为表中的字段定义PRIMARY KEY、NOT NULL、UNIQUE、FOREIGN KEY、CHECK共5中约束.</p><pre><code class="shell">  //定义约束
+  CREATE TABLE emp(
+        empno  NUMBER(4),
+      ename  VARCHAR2(10),
+        deptno  NUMBER(7,2) NOT NULL,
+      CONSTRAINT emp_empno_pk PRIMARY KEY(EMPNO),
+      CONSTRAINT emp_dpeno_fk FOREIGN KEY(deptno) REFERENCES dept(deptno)
+      CONSTRAINT emp_deptno_ck CHECK(DEPTNO BETWEEN 10 AND 99));
+      
+  //管理约束
+  ALTER TABLE emp ADD CONSTRAINT emp_mgr_fk FOREIGN KEY(mgr) REFERENCES emp(empno);
+  ALTER TABLE emp DROP CONSTRAINT emp_mgr_fk;
+  ALTER TABLE dept DROP PRIMARY KEY CASCADE;
+  ALTER TABLE emp ENABLE CONSTRAINT emp_mgr_fk; 
+</code></pre><h3 id="Views"><a href="#Views" class="headerlink" title="Views"></a>Views</h3><pre><code class="shell">  //创建视图
+  CREATE [OR REPLACE] [FORCE|NOFORCE] VIEW view [(alias[, alias]...)]
+                        AS subquery
+                        [WITH CHECK OPTION [CONSTRAINT constraint]]
+                        [WITH READ ONLY]
+
+  CREATE VIEW usersView AS SELECT * from T_USERS
+                        WITH CHECK OPTION CONSTRAINT empvu20_ck; 
+  
+  CREATE OR REPLACE VIEW emp_view AS SELECT empno EMP_NUMBER, ename, sal, loc
+      FROM emp, dept
+      WHERE emp.deptno = dept.deptno AND  dept.deptno = 10;
+      
+  //查询视图
+  SELECT ename from emp_view WHERE empno = 9876;
+  
+  //删除视图
+  DROP VIEW emp_view
+</code></pre><h3 id="Sequences"><a href="#Sequences" class="headerlink" title="Sequences"></a>Sequences</h3><ul><li>序列号为ORACLE整数, 最多38个数字, 一般指出序列名字、上升下降、序列号之间间距与其他信息.</li></ul><pre><code class="shell">  CREATE SEQUENCE project_team_seq
+              START WITH 1000  //起始值
+              INCREMENT BY 1   //步长
+              MINVALUE 1     //最小值
+              MAXVALUE 10000 //最大值
+              CYCLE         //循环
+              CACHE 1000 //缓存
+              NOCYCLE NOORDER;
+               
+  SELECT project_team_seq.NEXTVAL FROM DUAL; //向序列中取下一个值,第一次取值必须要先取到NEXTVAL值才会有CURRVAL值
+  SELECT project_team_seq.CURRVAL FROM DUAL; //向序列中取当前值
+</code></pre><h3 id="Synonyms"><a href="#Synonyms" class="headerlink" title="Synonyms"></a>Synonyms</h3><ul><li>为任何表、视图、快照、序列、过程、函数或包的别名.</li><li>有私有与公有两种同义词.</li></ul><pre><code class="shell">  CREATE SYNONYM SLAG FOR SCOTT.SALRADE;  //私有
+  CREATE PUBLIC SYNONYM P_SLAG FOR SCOTT.SALGRADE; //共有
+</code></pre><h3 id="Roles"><a href="#Roles" class="headerlink" title="Roles"></a>Roles</h3><pre><code class="shell">  CREATE USER user_name   //用户名
+    IDENTIFIED BY password   //密码
+    [DEFAULT TABLESPACE tablespace_name]  //初始表空间
+    [TEMPORARY TABLESPACE tablespace_name]  //临时初始表空间
+    [QUOTA quota_number [K | M] | UNLIMITED ON tablespace_name] //允许使用的最大字节数
+    [PROFILE profile_name]  //概要文件名字
+    [PASSWORD expire] //设置口令为过期状态
+    [ACCOUNT lock| unlock]  //账号锁定
+
+  CREATE USER simhr IDENTIFIED BY abcdef 
+                    DEFAULT TABLESPACE users
+                    QUOTA 10M ON users
+                    PASSWORD EXPIRE
+                    ACCOUNT lock;
+                    
+   GRANT CREATE SESSION TO user; //授予数据库建立会话/登录的系统权限
+   GRANT CREATE table TO user;
+   GRANT CONNECT TO user;
+</code></pre><h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><ul><li>如果算术表达式中包含NULL值，则表达式的值也为NULL.</li></ul><pre><code class="shell">  //插入
+  INSERT INTO dept(deptno, dname, loc) VALUES (50, &#39;DEVELOPMENT&#39;, &#39;DETROIT&#39;);
+  INSERT INTO emp(deptno, hiredate) VALUES (5, SYSDATE);
+  INSERT INTO su(id, name, address) SELECT N_USER_ID, VC_LOGIN_NAME, VC_PASSWORD FROM T_USERS; //插入多行
+  
+  //更新
+  UPDATE emp SET (job, deptno) = (SELECT job, deptno FROM emp WHERE empno = 7499) WHERE empno = 7698;
+  
+  //查询
+  SELECT ename &quot;Name&quot;, sal * 12 &quot;Annual Salary&quot; FROM emp; //别名
+  SELECT ename || &#39; &#39;  || &#39;is a&#39; || &#39; &#39;|| job AS &quot;Employee Details&quot; FROM emp; //连接符
+  SELECT ename from emp WHERE sal BETWEEN 1000 AND 1500;
+  SELECT ename from emp WHERE ename LIKE &#39;_A%&#39;; // _匹配任意单一字符, %匹配0个或多个字符.
+  SELECT ename from emp WHERE ename LIKE &#39;_A\%&#39; ESCAPE &#39;\&#39;; //转义特殊符号
+</code></pre><h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><pre><code class="shell">    LPAD(X,Y,Z) //在X的左边加入Y个Z
+    RPAD(X,Y,Z) //在X的右边加入Y个Z
+    LOWER(X)
+    UPPER(X)
+    INITCAP(X) //第一个字母大写,剩下的都小写
+    LENGTH(X)
+    SUBSTR(X,Y,Z) //从字符串X的第Y个字符开始,取出Z个字符
+    INSTR(X,Y) //将Y插入到X的位置
+    CONCAT(X,Y) //连接字符串
+    SELECT TO_CHAR(SYSDATE,&#39;YYYY-MM-DD HH24:MI:SS&#39;) FROM DUAL; //Oracle默认日期格式DD-MON-YY
+    MONTHS_BETWEEN(date1, date2) //两个日期相差月数
+    NVL(expr1, expr2) //如果expr1为null,返回expr2值,否则返回expr1值.
+    NVL2(expr1, expr2, expr3) //如果expr1为null,返回expr3值,否则返回expr2值.
+    
+    CASE expr WHEN comparison_expr1 THEN return_expr1
+         [WHEN comparison_expr2 THEN return_expr2
+          WHEN comparison_exprn THEN return_exprn
+          ELSE else_expr]
+    END
+    DECODE(col|expression, search1, result1 
+                     [, search2, result2,...,]
+                     [, default])
+    
+    CASE job WHEN &#39;ANALYST&#39; THEN 1.10 * sal
+             WHEN &#39;CLERK&#39; THEN 1.15 * sal
+             WHEN &#39;SALESMAN&#39; THEN 1.20 * sal
+             ELSE sal
+    END
+    
+    DECODE(job,&#39;ANALYST&#39;, 1.10 * sal, &#39;CLERK&#39;, 1.15 * sal, &#39;SALESMAN&#39;, 1.20 * sal, sal);
+        
+</code></pre><p><img src="https://binpicgo.oss-cn-chengdu.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20241114223907.png"></p><h2 id="PL-SQL"><a href="#PL-SQL" class="headerlink" title="PL&#x2F;SQL"></a>PL&#x2F;SQL</h2><pre><code class="shell">  //匿名块
+  DECLARE 
+    v_number NUMBER(20);
+  BEGIN
+    v_number := 100 / 0;
+  EXCEPTION
+    WHEN ZERO_DIVIDE THEN
+       DBMS_OUTPUT.PUT_LINE(&#39;DIVIDED BY ZERO&#39;);
+  END;
+ 
+  //记录类型
+  DECLARE 
+    TYPE record_type_emp IS RECORD(
+      name VARCHAR2(10),
+      job VARCHAR2(9),
+      salary NUMBER(10));
+    record record_type_emp;
+   BEGIN
+    SELECT ename,job,salary INTO record FROM scott.emp WHERE empno=7369;
+    dbms_output.put_line(&#39;ename:&#39; || emp_record.name||&#39; job:&#39;||emp_record.job||&#39; sal:&#39;|| emp_record.salary); 
+   END;
+
+  //记录表类型
+  DECLARE
+    TYPE dept_table_type IS TABLE OF VARCHAR(14) INDEX BY BINARY_INTEGER;
+    table dept_table_type;
+  BEGIN
+    FOR i IN 1..4 LOOP
+      SELECT dname INTO dept_table_type(i) FROM scott.dept WHERE deptno = 10 * i;
+      dbms_output.put_line(&#39;dname:&#39;|| dept_table(i));
+    END LOOP;
+  END;
+  
+  //在PL/SQL中使用INSERT
+  DECLARE
+    v_deptno dept.deptno%TYPE;
+    v_dname dept.dname%TYPE;
+  BEGIN
+    v_deptno := &amp;no;
+    v_dname := &#39;$name&#39;;
+    INSERT INTO dept(deptno, dname) VALUES (v_deptno,v_dname);
+  END;
+  
+  //循环
+  DECLARE 
+    v_number NUMBER(2);
+    i NUMBER(2);
+    j NUMBER(2);
+  BEGIN 
+    v_number := 6;
+    i := 0;
+        LOOP
+            i := i + 1;
+            FOR j IN 1..i LOOP
+                    DBMS_OUTPUT.PUT(&#39;*&#39;);
+            END LOOP;
+            DBMS_OUTPUT.PUT_LINE(&#39;&#39;);
+            EXIT WHEN i = v_number;
+        END LOOP;
+  END;
+  
+  //系统自定义异常
+  DECLARE
+    e_amount_remaining EXCEPTION;
+  BEGIN
+   RAISE e_amount_remaining;
+  EXCEPTION
+    WHEN e_amount_remaining THEN
+      :g_message := &#39;There is still an amount
+                 in stock.&#39;;
+  END;
+
+  //触发器
+  CREATE OR REPLACE TRIGGER audit_emp_values
+    AFTER DELETE OR INSERT OR UPDATE ON emp
+    FOR EACH ROW
+  BEGIN
+    INSERT INTO audit_emp_table (user_name, timestamp,empno,
+          old_ename, new_ename, old_job,new_job, old_sal, new_sal)
+        VALUES (USER, SYSDATE, :OLD.empno,:OLD.ename, :NEW.ename,
+          :OLD.job,:NEW.job, :OLD.sal, :NEW.sal );
+  END;
+  
+  //存储过程
+  CREATE OR REPLACE PROCEDURE insert_emp 
+    (no  emp.empno%TYPE,		name  emp.ename%TYPE,
+    Job  emp.job%TYPE,			mgr  emp.mgr%TYPE,
+    hiredate emp.hiredate%TYPE ,	salary emp.sal%TYPE ,
+    comm emp.comm%TYPE ,		deptno emp.deptno%TYPE 
+    ) IS
+  BEGIN
+    INSERT INTO emp VALUES(no,name,job,mgr,hiredate,salary,comm,deptno);
+  END;
+  
+  CREATE OR REPLACE PROCEDURE swap
+    (x IN OUT NUMBER ,y IN OUT NUMBER)
+  IS z NUMBER;
+  BEGIN
+    z:=x;
+    x:=y;
+    y:=z;
+  END;
+
+  //函数
+  CREATE OR REPLACE FUNCTION get_sal(p_id IN emp.empno%TYPE)
+    RETURN NUMBER
+  IS
+    v_salary emp.sal%TYPE :=0;
+  BEGIN
+     SELECT sal INTO v_salary FROM emp WHERE empno = p_id;
+     RETURN v_salary;
+  END get_sal;
+</code></pre></div><div id="comment"><div id="giscus-container" class="giscus"></div></div></div><footer id="footer"><div id="footer-wrap"><div>&copy; 2023 - 2024 Bin&#39;s blog <span id="footer-icon"><i class="fa-solid fa-font-awesome fa-fw"></i> </span>&commat;Binbin</div><div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp; <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a></div></div></footer></div><transition name="fade"><div id="preview" ref="preview" v-show="previewShow"><img id="preview-content" ref="previewContent"></div></transition></div><script src="/js/main.js"></script><script src="https://giscus.app/client.js" data-repo="Sakb1n/Review" data-repo-id="R_kgDOLDDvkw" data-category="Announcements" data-category-id="DIC_kwDOLDDvk84CjKqj" data-mapping="title" data-strict="0" data-reactions-enabled="top" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin async></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/z16.model.json"},display:{position:"right",width:150,height:300,hOffset:-15,vOffset:-15},mobile:{show:!0},react:{opacity:.7},log:!1})</script></body></html>
